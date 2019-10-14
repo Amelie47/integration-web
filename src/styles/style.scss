@@ -1,0 +1,40 @@
+/******************************************
+ * Const
+ ******************************************/
+@import "const/colors";
+@import "const/fonts";
+@import "const/texts";
+@import "const/breakpoints";
+
+/******************************************
+ * Utils
+ ******************************************/
+@import "utils/mixins";
+
+/******************************************
+ * Layouts
+ ******************************************/
+@import "layouts/main/main";
+
+/******************************************
+ * Components
+ ******************************************/
+@import "components/button";
+
+/******************************************
+ * Base styles
+ ******************************************/
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  // font-family: "FontName", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: $color-text;
+  background-color: $color-background;
+}

@@ -1,0 +1,361 @@
+/******************************************
+ * Elements
+ ******************************************/
+@import "header";
+@import "nav";
+@import "footer";
+
+/******************************************
+ * Layout base styles
+ ******************************************/
+body{
+  font-family: 'Arial';
+  /*  display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;*/
+}
+main {
+  margin:0;
+  display: block;
+}
+
+
+//======Section sizes===================
+.section-size{
+  width:923px;
+  margin: auto;
+}
+.little-section-size{
+  width: 742px;
+  margin: auto;
+}
+
+
+//======Styles===================
+.ft-14{font-size:14px;}
+.spacebetween{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: auto;
+  justify-content: space-between;
+}
+.relative{position:relative;}
+.button{
+  text-decoration: none;
+  padding:16px 13px;
+  border: solid 1px;
+  background-color: transparent;
+}
+.arrow-button{margin-left:50px;}
+.big-title{font-size: 24px;}
+.title{font-size: 1rem;}
+.header-section{margin-bottom:43px;}
+.div-arrows{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+label{padding-right: 10px;}
+
+
+//======En-tête===================
+.entete{
+  padding-top:106px;
+  background-color:#009f55;
+  position: relative;
+  height: 400px;
+
+}
+.entete img{
+  position: absolute;
+  z-index: 1;
+  margin: auto;
+}
+.product{
+  color:white;
+}
+.wrapper{
+  display:flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+.product-title{
+  margin-top:50px;
+}
+.product-content{
+  font-size: 11px;
+  margin:0;
+}
+.button-commander{
+  margin-top:200px;
+  color:white;
+  text-decoration: none;
+  padding:16px 9px;
+  border-color: white;
+  background-color: transparent;
+}
+
+
+//======Best seller===================
+.section-slider{
+  padding: 44px 0 43px 0;
+  z-index: 2;
+  background-color: white;
+}
+.input-sort{
+  padding:10px;
+  color: grey;
+  border-color: #d6d6d6;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.33);
+  width: 114px;
+}
+.active-product{
+  display: initial;
+}
+//====SLIDER====
+.slider{
+  margin: auto;
+}
+.article-card{
+  width:180px;
+  margin-right: 3px;
+  background-color: #efefef;
+  border-bottom: solid 5px #d6d6d6;
+}
+.article-card:last-child{
+  margin: 0px;
+}
+.stock-danger{
+  border-bottom: solid 5px #ff3f0c;
+}
+.stock-danger .article-stock{
+  color: #ff3f0c;
+}
+.article-card div{
+  width: 148px;
+  padding:16px;
+  background-color: #e6e6e6;
+  height: 105px;
+  display: block;
+}
+.article-card div img{
+  margin: auto;
+}
+.article-card h2{
+  padding: 16px 16px 0 16px;
+  font-size: 16px;
+}
+.article-desc{
+  padding: 14px 16px 29px 16px;
+  font-size: 11px;
+  word-break: break-all;
+}
+.article-stock{
+  padding: 0 16px 0 16px;
+  color:#d6d6d6;
+  font-size: 11px;
+  bottom: 0;
+  position: absolute;
+  right: 0px;
+}
+.arrow-slider{
+  position: absolute;
+  background-color: transparent;
+  border:none;
+}
+.arrow-gauche{
+  left: -50px
+}
+.arrow-droite{
+  right: -50px;
+}
+
+
+//======Diagonale===================
+#diagonale{
+  background-color: red;
+  height: 50px;
+  transform:skew(0deg,175deg);
+}
+
+
+//======Nouveautes===================
+.section-nouveautes{
+  background-color: #0cff56;
+  padding: 20px 0 50px 0;
+}
+.title-nouveautes{
+  text-align: center;
+  margin-bottom: 58px;
+}
+.section-nouveautes article{
+  padding-bottom: 34px;
+}
+#image{
+  margin-right: 25px;
+  flex:1;
+}
+#content-nouveaute{
+  padding: 0;
+  margin-left: 25px;
+  flex: 1;
+  font-size: 14px;
+}
+#content-nouveaute h1{
+  top:0;
+  margin-top: 0;
+}
+.button-nouveautes{
+  color: black;
+  border-color:black;
+}
+#bulles{
+  text-align: center;
+}
+
+//======Historique===================
+.section-historique{
+  padding: 20px 0 50px 0;
+  display: flex;
+  position: relative;
+}
+.section-historique > div{
+  width: 50%;
+}
+.div-historique{
+  margin-right: 50px ;
+}
+.title-historique{
+  font-size: 18px;
+}
+.article-historique{
+  display: flex;
+  justify-content: space-between;
+  padding: 23px 0 23px 0;
+  border-bottom: 1px #d6d6d6 solid;
+}
+.article-historique:first-child{
+  padding-top: 0;
+}
+.article-historique:last-child{
+  border: none;
+  padding-bottom: 0;
+}
+.article-historique-content{
+  display: flex;
+}
+.article-historique-content img{
+  width: 76px;
+  height: 76px;
+  margin-right: 19px;
+}
+.article-title{
+  margin: 0;
+}
+.article-by{
+  font-size: 11px;
+  margin: 0;
+}
+.etat{
+  position: absolute;
+  bottom: 0;
+  font-size: 11px;
+}
+.fleche-right{
+  margin-left: 10px;
+}
+
+.commande-danger .etat{
+  color: red;
+}
+.commande-ok .etat{
+  color: #0cff56;
+}
+
+
+//======Ventes / commandes===================
+.section-ventes{
+  background-color: #ff3f0c;
+  color: white;
+  padding: 20px 0 50px 0;
+}
+.div-input-modele{
+  margin-right: 30px;
+}
+.section-ventes .input-sort{
+  border-color: white;
+  color: white;
+}
+.section-ventes .input-sort option{
+  color: black;
+}
+.div-graphics{
+  position: relative;
+}
+.div-graphics img{
+  margin: auto;
+}
+
+
+//======Modeles===================
+.section-modeles{
+  padding: 20px 0 50px 0;
+}
+#loupe{
+  position: absolute;
+  padding:11px;
+}
+#search{
+  width: 255px;
+  height: 10px;
+  padding:14px 14px 14px 40px;
+  color: grey;
+  border: 1px solid #d6d6d6;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.33);
+  text-decoration: none;
+  background-color: transparent;
+}
+.voir-tout{
+  display: flex;
+  padding-top: 35px;
+  position: relative;
+}
+.voir-tout button{
+  margin: auto;
+  padding:10px;
+  color: grey;
+  border-color: #d6d6d6;
+  background-color: white;
+  z-index: 1;
+}
+.voir-tout:before{
+  content: '';
+  height: 1px;
+  width: 100%;
+  background-color: #d6d6d6;
+  position: absolute;
+  transform: translateY(17px);
+  z-index: 0;
+}
+#fleche-down{
+  padding-right: 10px;
+}
+
+
+//======Footer===================
+footer{
+  background-color: #170cff;
+  color: white;
+}
+footer section{
+  display: flex;
+  justify-content: space-between;
+  padding:50px 0 47px 0;
+}
+footer p{
+  margin-bottom: 36px;
+}
+footer li{
+  color: #a29eff;
+}

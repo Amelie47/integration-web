@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Vélo</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<!-- header -->
+<header class="header">
+	<div class="section-size spacebetween">
+		<nav class="nav relative">
+			<ul>
+				<li class="active-link"><a class="link" href="">Accueil</a></li>
+				<li><a class="link" href="">En cours</a></li>
+				<li><a class="link" href="">Historique</a></li>
+			</ul>
+		</nav>
+		<div class="nav-user relative">
+			<p class="link"><a href="">Sophia Lopez</a><i class="fa fa-plus-circle"></i></p>
+			<p class="link"><a href="">Déconnexion</a></p>
+		</div>
+	</div>
+</header>
+<!-- / header -->
+
+<!-- main -->
+<main>
+	<section class="entete">
+		<!--<img src="images/header-bike.png" alt="test">-->
+		<div class="section-size entete-slider">
+			<article class="product">
+				<div class="wrapper">
+					<div>
+						<h1 class="product-title ft-14"><strong>Nom du modèle</strong></h1>
+						<p class="product-content">Taille L - Mécanique</p>
+						<p class="product-content">Rouge Feu</p>
+						<div>
+							<button class="button button-commander" href="">commander<span class="arrow-button"><i class="fa fa-chevron-right"></i></span></button>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+	</section>
+	<section class="section-slider">
+		<div class="section-size">
+			<div class="spacebetween header-section">
+				<p class="big-title relative">Best Seller</p>
+				<div class="relative div-arrows">
+					<label class="ft-14">trier par : </label>
+					<select class="button input-sort">
+						<option class="ft-14" value="stock">stock</option>
+						<option class="ft-14" value="prix">prix</option>
+					</select>
+				</div>
+			</div>
+			<div>
+				<div class="spacebetween section-size div-arrows">
+					<div class="spacebetween slider">
+						<article class="article-card stock-danger relative">
+							<div><img alt="image1" src="/src/assets/images/Product1.png"></div>
+							<h2>Nom du modèle 1</h2>
+							<p class="article-desc">Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description</p>
+							<p class="article-stock">0 en stock</p>
+						</article>
+						<article class="article-card stock-danger relative">
+							<div><img alt="image1" src="/src/assets/images/Product2.png"></div>
+							<h2>Nom du modèle 2</h2>
+							<p class="article-desc">Description</p>
+							<p class="article-stock">1 en stock</p>
+						</article>
+						<article class="article-card relative">
+							<div><img alt="image1" src="/src/assets/images/Product3.png"></div>
+							<h2>Nom du modèle 3</h2>
+							<p class="article-desc">Description</p>
+							<p class="article-stock">4 en stock</p>
+						</article>
+						<article class="article-card relative">
+							<div><img alt="image1" src="/src/assets/images/Product4.png"></div>
+							<h2>Nom du modèle 4</h2>
+							<p class="article-desc">Description</p>
+							<p class="article-stock">4 en stock</p>
+						</article>
+						<article class="article-card relative">
+							<div><img alt="image1" src="/src/assets/images/Product5.png"></div>
+							<h2>Nom du modèle 5</h2>
+							<p class="article-desc">Description</p>
+							<p class="article-stock">5 en stock</p>
+						</article>
+					</div>
+					<button class="arrow-slider arrow-gauche"><img alt="image" src="/src/assets/images/Gauche.png"></button>
+					<button class="arrow-slider arrow-droite"><img alt="image4" src="/src/assets/images/Droite.png"></button>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!--<div id="diagonale">diagonale</div>-->
+	<section class="section-nouveautes">
+		<div class="little-section-size">
+			<p class="ft-14 title-nouveautes"><strong>Nouveautés</strong></p>
+			<article class="spacebetween">
+				<img class="relative" alt="imageNouveauModele" id="image" src="/src/assets/images/Product.png">
+				<div class="relative" id="content-nouveaute">
+					<h1 class="title">Nom du nouveau modèle</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non eleifend velit. Aliquam imperdiet mollis lorem a tempor. Duis condimentum sem eu risus faucibus, nec laoreet leo pellentesque. Etiam lorem ex, hendrerit nec erat at, gravida eleifend orci.</p>
+					<button class="button button-nouveautes">commander<span class="arrow-button"><i class="fa fa-chevron-right"></i></span></button>
+				</div>
+			</article>
+			<div id="bulles">
+				<img class="relative" alt="imageNouveauModele" src="/src/assets/images/bulle2.png">
+				<img class="relative" alt="imageNouveauModele" src="/src/assets/images/bulle1.png">
+				<img class="relative" alt="imageNouveauModele" src="/src/assets/images/bulle3.png">
+			</div>
+		</div>
+	</section>
+	<section class="section-size section-historique">
+		<div class="div-historique">
+			<p class="title-historique">Historique de vos commandes</p>
+				<ul class="div-articles-historique">
+					<li class="article-historique commande-danger">
+						<div class="article-historique-content">
+							<img alt="user" src="/src/assets/images/User1.png">
+							<div class="relative">
+								<p class="ft-14 article-title"><strong>title</strong></p>
+								<p class="article-by">par bob</p>
+								<p class="etat">etat</p>
+							</div>
+						</div>
+						<p>btn</p>
+					</li>
+					<li class="article-historique">
+						<div class="article-historique-content">
+							<img alt="user" src="/src/assets/images/User1.png">
+							<div class="relative">
+								<p class="ft-14 article-title"><strong>title</strong></p>
+								<p class="article-by">par bob</p>
+								<p class="etat">etat</p>
+							</div>
+						</div>
+						<p>btn</p>
+					</li>
+					<li class="article-historique commande-ok">
+						<div class="article-historique-content">
+							<img alt="user" src="/src/assets/images/User1.png">
+							<div class="relative">
+								<p class="ft-14 article-title"><strong>title</strong></p>
+								<p class="article-by">par bob</p>
+								<p class="etat">etat</p>
+							</div>
+						</div>
+						<p>btn</p>
+					</li>
+					<li class="article-historique commande-ok">
+						<div class="article-historique-content">
+							<img alt="user" src="/src/assets/images/User1.png">
+							<div class="relative">
+								<p class="ft-14 article-title"><strong>title</strong></p>
+								<p class="article-by">par bob</p>
+								<p class="etat">etat</p>
+							</div>
+						</div>
+						<p>btn</p>
+					</li>
+				</ul>
+			<div class="voir-tout">
+				<button class="button">voir l'historique<img alt="image1" src="/src/assets/images/fleche-right.png" class="fleche-right"></button>
+			</div>
+		</div>
+		<div class="div-formations">
+			<p class="title-historique">Formations liées</p>
+		</div>
+	</section>
+	<section class="section-ventes">
+		<div class="section-size">
+			<div class="spacebetween header-section">
+				<p class="ft-14"><strong>Ventes / Commandes</strong></p>
+				<div class="spacebetween relative div-arrows">
+					<div class="relative div-input-modele">
+						<label class="ft-14">modèle : </label>
+						<select class="button input-sort">
+							<option class="ft-14" value="stock">Modèle A</option>
+							<option class="ft-14" value="prix">Modèle B</option>
+						</select>
+					</div>
+					<div class="relative">
+						<label class="ft-14">couleur : </label>
+						<select class="button input-sort">
+							<option class="ft-14" value="stock">Noir</option>
+							<option class="ft-14" value="prix">Rouge</option>
+							<option class="ft-14" value="prix">Bleu</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="div-graphics">
+				<img class="relative" alt="graphique" src="/src/assets/images/graphique.png">
+				<img class="relative" alt="legendes" src="/src/assets/images/legendes.png">
+			</div>
+		</div>
+	</section>
+	<section class="section-modeles">
+		<div class="section-size">
+			<div class="spacebetween header-section">
+				<p class="ft-14 big-title">Tous les modèles</p>
+				<div class="spacebetween relative div-arrows">
+					<div class="relative div-input-modele input-div">
+						<label class="ft-14">modèle : </label>
+						<img alt="down" src="/src/assets/images/Loupe.png" id="loupe">
+						<input type="text" placeholder="Rechercher un modèle" id="search">
+					</div>
+					<div class="relative input-div">
+						<label class="ft-14">trier par : </label>
+						<select class="button input-sort">
+							<option class="ft-14" value="stock">popularité</option>
+							<option class="ft-14" value="prix">prix croissant</option>
+							<option class="ft-14" value="prix">prix décroissant</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="spacebetween slider">
+				<article class="article-card stock-danger relative">
+					<div><img alt="image1" src="/src/assets/images/Product1.png"></div>
+					<h2>Nom du modèle 1</h2>
+					<p class="article-desc">Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description</p>
+					<p class="article-stock">0 en stock</p>
+				</article>
+				<article class="article-card stock-danger relative">
+					<div><img alt="image1" src="/src/assets/images/Product2.png"></div>
+					<h2>Nom du modèle 2</h2>
+					<p class="article-desc">Description</p>
+					<p class="article-stock">1 en stock</p>
+				</article>
+				<article class="article-card relative">
+					<div><img alt="image1" src="/src/assets/images/Product3.png"></div>
+					<h2>Nom du modèle 3</h2>
+					<p class="article-desc">Description</p>
+					<p class="article-stock">4 en stock</p>
+				</article>
+				<article class="article-card relative">
+					<div><img alt="image1" src="/src/assets/images/Product4.png"></div>
+					<h2>Nom du modèle 4</h2>
+					<p class="article-desc">Description</p>
+					<p class="article-stock">4 en stock</p>
+				</article>
+				<article class="article-card relative">
+					<div><img alt="image1" src="/src/assets/images/Product5.png"></div>
+					<h2>Nom du modèle 5</h2>
+					<p class="article-desc">Description</p>
+					<p class="article-stock">5 en stock</p>
+				</article>
+			</div>
+			<div class="voir-tout">
+				<button class="button"><img alt="down" src="/src/assets/images/Fleche-down.png" id="fleche-down">voir tout les modèles</button>
+			</div>
+		</div>
+	</section>
+</main>
+<!-- / main -->
+<footer>
+	<section class="section-size">
+		<div>
+			<p class="ft-14"><strong>Navigation</strong></p>
+			<div class="footer-content">
+				<ul>
+					<li>actualités</li>
+					<li>annuaire</li>
+					<li>app store</li>
+					<li>commandes</li>
+					<li>formations</li>
+					<li>publicités</li>
+				</ul>
+			</div>
+		</div>
+		<div>
+			<p class="ft-14"><strong>Mon compte</strong></p>
+			<div class="footer-content">
+				<ul>
+					<li>contacts favoris</li>
+					<li>commandes</li>
+					<li>formations</li>
+					<li>préférences</li>
+					<li>profil</li>
+					<li>publicités</li>
+				</ul>
+			</div>
+		</div>
+		<div>
+			<p class="ft-14"><strong>Application</strong></p>
+			<div class="footer-content">
+				<ul>
+					<li>catalogue</li>
+					<li>app SAV</li>
+					<li>app garantie</li>
+					<li>user management</li>
+					<li>CRM</li>
+					<li>ERP</li>
+				</ul>
+			</div>
+		</div>
+		<div>
+			<p class="ft-14"><strong>Liens</strong></p>
+			<div class="footer-content">
+				<ul>
+					<li>à propos</li>
+					<li>conditions d'utilisation</li>
+					<li>mentions légales</li>
+					<li>intranet</li>
+					<li>site.com</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+</footer>
+</body>
+</html>

@@ -1,0 +1,50 @@
+/******************************************
+ * Navigation
+ ******************************************/
+ul{
+  margin:0;
+  list-style:none;
+}
+.nav-user p{
+  display: inline-block;
+  padding:46px 0 43px 0;
+  margin: 0 15px 0 15px;
+}
+.nav-user p a{
+  text-decoration: none;
+  color:white;
+}
+.nav ul li{
+  display: inline-block;
+  padding:46px 0 43px 0;
+  margin: 0 15px 0 15px;
+}
+ul{
+  padding-left:0px;
+}
+.link{
+  font-size: 15px;
+  text-decoration: none;
+  color:rgba(255,255,255,0.7);
+}
+.active-link{
+  // à faire en after
+  border-bottom: solid white 6px;
+}
+.active-link .link{
+  color:white;
+}
+.login-link{
+  margin-left:auto;
+  color:white;
+}
+.plus{
+  color:white;
+}
+.fa-plus-circle{
+  margin-left:10px;
+}
+
+/********************
+ * Alternatives - Responsive
+ ********************/
