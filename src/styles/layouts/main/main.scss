@@ -65,13 +65,21 @@ label{padding-right: 10px;}
   background-color:#009f55;
   position: relative;
   height: 400px;
+  overflow: hidden;
+  display: flex;
+}
 
-}
-.entete img{
+.entete img {
   position: absolute;
-  z-index: 1;
-  margin: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
 }
+
+.entete-slider {
+  z-index: 1;
+}
+
 .product{
   color:white;
 }
@@ -245,10 +253,41 @@ label{padding-right: 10px;}
 .article-historique-content{
   display: flex;
 }
-.article-historique-content img{
+
+.article-historique-content .user-img{
   width: 76px;
   height: 76px;
   margin-right: 19px;
+  border-radius: 50%;
+  border: #bebebe 1px solid;
+}
+
+.badge{
+  width: 76px;
+  height: 76px;
+  background-color: #d6d6d6;
+  border: #bebebe 1px solid;
+  border-radius: 50%;
+  transform: translateX(-35px);
+}
+.state-user-img{
+  height: 32px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  top: 50%;
+}
+.commande-danger .etat{color: #ff3f0c;}
+.commande-danger .badge{
+  border-color: #ff3f0c;
+  background-color: #ff3f0c;
+}
+.commande-danger .user-img{border-color: #ff3f0c;}
+
+.commande-ok .etat{color: #0cff56;}
+.commande-ok .badge{
+  border-color: #0cff56;
+  background-color: #0cff56;
 }
 .article-title{
   margin: 0;
@@ -265,14 +304,15 @@ label{padding-right: 10px;}
 .fleche-right{
   margin-left: 10px;
 }
-
-.commande-danger .etat{
-  color: red;
+.button-danger button{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  border-color: #ff3f0c;
 }
-.commande-ok .etat{
-  color: #0cff56;
+.button-danger .fleche-right{
+  margin-left: 17px;
 }
-
 
 //======Ventes / commandes===================
 .section-ventes{
@@ -292,6 +332,7 @@ label{padding-right: 10px;}
 }
 .div-graphics{
   position: relative;
+  text-align: center;
 }
 .div-graphics img{
   margin: auto;
