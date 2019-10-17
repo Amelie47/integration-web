@@ -107,9 +107,12 @@ label{padding-right: 10px;}
 
 //======Best seller===================
 .section-slider{
-  padding: 44px 0 43px 0;
+  padding: 44px 0 46px 0;
   z-index: 2;
   background-color: white;
+}
+.section-slider > div{
+  padding-bottom: 46px;
 }
 .input-sort{
   padding:10px;
@@ -122,17 +125,10 @@ label{padding-right: 10px;}
   display: initial;
 }
 //====SLIDER====
-.slider{
-  margin: auto;
-}
 .article-card{
   width:180px;
-  margin-right: 3px;
   background-color: #efefef;
   border-bottom: solid 5px #d6d6d6;
-}
-.article-card:last-child{
-  margin: 0px;
 }
 .stock-danger{
   border-bottom: solid 5px #ff3f0c;
@@ -147,10 +143,18 @@ label{padding-right: 10px;}
   height: 105px;
   display: block;
 }
-.article-card div img{
+
+.div-img{
+  width: 148px;
+  padding:16px;
+  background-color: #e6e6e6;
+  height: 105px;
+  display: block;
+}
+.img-article{
   margin: auto;
 }
-.article-card h2{
+.title-article{
   padding: 16px 16px 0 16px;
   font-size: 16px;
 }
@@ -180,18 +184,16 @@ label{padding-right: 10px;}
 }
 
 
-//======Diagonale===================
-#diagonale{
-  background-color: red;
-  height: 50px;
-  transform:skew(0deg,175deg);
-}
-
-
 //======Nouveautes===================
 .section-nouveautes{
   background-color: #0cff56;
-  padding: 20px 0 50px 0;
+  padding-bottom: 100px;
+  overflow: hidden;
+  transform: skew(0deg,-2deg);
+}
+#div-sect{
+  padding-top: 43px;
+  transform: skew(0deg,2deg);
 }
 .title-nouveautes{
   text-align: center;
@@ -225,13 +227,16 @@ label{padding-right: 10px;}
 //======Historique===================
 .section-historique{
   padding: 20px 0 50px 0;
-  display: flex;
   position: relative;
+  background-color: white;
+  margin-top: -50px;
+  z-index: 1;
 }
 .section-historique > div{
-  width: 50%;
+  display: flex;
 }
 .div-historique{
+  width: 50%;
   margin-right: 50px ;
 }
 .title-historique{
@@ -318,7 +323,13 @@ label{padding-right: 10px;}
 .section-ventes{
   background-color: #ff3f0c;
   color: white;
-  padding: 20px 0 50px 0;
+  padding: 50px 0 50px 0;
+  transform: skew(0deg,2deg);
+  margin-top: -50px;
+}
+.section-ventes > div{
+  padding-top: 43px;
+  transform: skew(0deg,-2deg);
 }
 .div-input-modele{
   margin-right: 30px;
@@ -336,12 +347,19 @@ label{padding-right: 10px;}
 }
 .div-graphics img{
   margin: auto;
+
+}
+#graph{
+  width: 100%;
 }
 
 
 //======Modeles===================
 .section-modeles{
-  padding: 20px 0 50px 0;
+  padding-bottom: 50px;
+}
+.section-modeles > div{
+  padding-top:43px;
 }
 #loupe{
   position: absolute;
