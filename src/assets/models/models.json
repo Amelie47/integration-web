@@ -9,7 +9,7 @@
         "stock": 3,
         "slug": "/model/0",
         "images": {
-            "big": "",
+            "big": "/src/assets/images/Product1_big.png",
             "small": "/src/assets/images/Product1.png" 
         },
         "hero": true,
@@ -217,7 +217,7 @@
         "stock": 1,
         "slug": "/model/13",
         "images": {
-            "big": "",
+            "big": "/src/assets/images/Product4_big.png",
             "small": "/src/assets/images/Product4.png"  
         },
         "hero": true,

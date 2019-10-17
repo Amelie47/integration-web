@@ -60,16 +60,18 @@ label{padding-right: 10px;}
 
 
 //======En-tête===================
-.entete{
+#entete{
   padding-top:106px;
-  background-color:#009f55;
   position: relative;
   height: 400px;
   overflow: hidden;
+  background-color: gray;
+}
+.div-product{
   display: flex;
 }
-
-.entete img {
+.img-entete {
+  padding-top: 56px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -82,6 +84,7 @@ label{padding-right: 10px;}
 
 .product{
   color:white;
+  z-index: 1;
 }
 .wrapper{
   display:flex;
@@ -90,6 +93,7 @@ label{padding-right: 10px;}
 }
 .product-title{
   margin-top:50px;
+  font-weight: bold;
 }
 .product-content{
   font-size: 11px;
