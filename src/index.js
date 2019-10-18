@@ -7,48 +7,67 @@ Array.from(document.body.querySelectorAll('.button')).forEach((button) => {
   new Button(button);
 });
 
-ajax('./src/assets/models/models.json',{}, function(datas){
+ajax('./src/assets/models/models.json', {}, function (datas) {
   let slider_auto_entete = document.getElementById('slider-auto-entete');
   let slider_best_seller = document.getElementById('slider-best-seller');
+  let section_entete = document.getElementById('entete');
 
   //SLIDER AUTO ENTETE
-  for(let item of datas){
-    if(item.hero == true){
-      slider_auto_entete.appendChild(getProduct(item));
+  for (let item of datas) {
+    if (item.hero == true) {
+      slider_auto_entete.appendChild(getProduct(item,section_entete));
     }
   }
 
-  slider_auto_entete.children.forEach(function(item, index, array) {
-    if(index == 1){
-      item.style.display = 'block';
+
+
+  slidermove();
+
+
+  function slidermove() {
+    let n = 0;
+    slider_auto_entete.children[1].style.display = 'flex';
+    let interval = setInterval(displayed, 3000);
+    function displayed() {
+      slider_auto_entete.children.forEach(function (item, index, array) {
+        if (index == n) {
+          item.style.display = 'flex';
+          section_entete.style.backgroundColor = getColor(item.getAttribute('data-color'));
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      n++;
+
+      //retour au début
+      if (n >= slider_auto_entete.children.length) {
+        n = 0;
+      }
     }
-  });
+  }
 
-  // let n = 0;
-  // setInterval(function(){
 
-  // }, 3000);
 
   //SLIDER BEST SELLER
-  for(let item of datas){
-    if(item.best == true){
+  for (let item of datas) {
+    if (item.best == true) {
       slider_best_seller.appendChild(getArticle(item));
     }
   }
 
   let articles = getVisibleArticles(slider_best_seller);
 
-  for(let item of articles){
+  for (let item of articles) {
     item.style.display = 'initial';
   }
 
   console.log('visibles', articles);
-  
+
 });
 
 
 
-function getArticle(item){
+function getArticle(item) {
   let div_img = document.createElement('div');
   div_img.classList.add('div-img');
 
@@ -57,7 +76,7 @@ function getArticle(item){
 
   let description = document.createElement('p');
   description.classList.add('article-desc');
-  
+
   let stock = document.createElement('p');
   stock.classList.add('article-stock');
 
@@ -68,10 +87,10 @@ function getArticle(item){
   let article = document.createElement('article');
   article.classList.add('article-card');
   article.classList.add('relative');
-  if(item.stock <= 1){article.classList.add('stock-danger');}
+  if (item.stock <= 1) { article.classList.add('stock-danger'); }
   article.style.display = 'none';
 
-  div_img.appendChild(getImage(item.images.small,'img-article'));
+  div_img.appendChild(getImage(item.images.small, 'img-article'));
   article.appendChild(div_img);
   article.appendChild(title);
   article.appendChild(description);
@@ -80,10 +99,13 @@ function getArticle(item){
   return article;
 }
 
-function getProduct(item){
+function getProduct(item,section_entete) {
+  section_entete.style.backgroundColor = getColor(item.specs.color);
+
   let container = document.createElement('div');
   container.classList.add('div-product');
   container.style.display = 'none';
+  container.setAttribute('data-color',item.specs.color);
 
   let article = document.createElement('article');
   article.classList.add('product');
@@ -98,12 +120,14 @@ function getProduct(item){
   title.classList.add('ft-14');
 
   let size_engine = document.createElement('p');
-  size_engine.classList.add('product_content');
-  
-  let color = document.createElement('p');
-  color.classList.add('product_content');
+  size_engine.classList.add('product-content');
 
-  container.appendChild(getImage(item.images.big,'img-entete'));
+  let color = document.createElement('p');
+  color.classList.add('product-content');
+
+  let img = getImage(item.images.big, 'img-entete');
+
+  container.appendChild(img);
   container.appendChild(article);
   article.appendChild(div_wrapper);
   div_wrapper.appendChild(div2);
@@ -119,38 +143,25 @@ function getProduct(item){
   return container;
 }
 
-function getVisibleArticles(slider)
-{
+function getVisibleArticles(slider) {
   let tab = [];
-  slider.children.forEach(function(item, index, array) {
-    if(index <= 4){
+  slider.children.forEach(function (item, index, array) {
+    if (index <= 4) {
       tab.push(item);
     }
   });
   return tab;
 }
 
-function getCurrentProduct(slider,n)
-{
-  let e;
-  slider.children.forEach(function(item, index, array) {
-    if(index == n){
-      e = item
-    }
-  });
-  return e;
-}
-
-function getImage(src,classname)
-{
+function getImage(src, classname) {
   let img = document.createElement('img');
-  img.setAttribute('src',src);
+  img.setAttribute('src', src);
   img.classList.add(classname);
 
   return img;
 }
 
-function getButtonCommander(){
+function getButtonCommander() {
   let div_button = document.createElement('div');
 
   let button = document.createElement('button');
@@ -159,11 +170,22 @@ function getButtonCommander(){
 
   let span = document.createElement('span');
   span.classList.add('arrow-button');
-  span.innerHTML = '>';
+
+  let arrow = document.createElement('img');
+  arrow.setAttribute('src', '/src/assets/images/Fleche-right-ligth.png');
 
   button.innerHTML = "Commander";
+  span.appendChild(arrow);
   button.appendChild(span);
   div_button.appendChild(button);
 
   return div_button;
+}
+
+function getColor(color)
+{
+  switch(color){
+    case 'Rouge Feu': return '#009f55';
+    case 'Vert Gazon': return '#e73025';
+  }
 }

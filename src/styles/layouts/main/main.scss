@@ -71,6 +71,7 @@ label{padding-right: 10px;}
   display: flex;
 }
 .img-entete {
+  width: 1038px;
   padding-top: 56px;
   position: absolute;
   left: 50%;
@@ -80,6 +81,8 @@ label{padding-right: 10px;}
 
 .entete-slider {
   z-index: 1;
+  display: flex;
+  overflow: hidden;
 }
 
 .product{
