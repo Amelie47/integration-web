@@ -2,25 +2,22 @@
 import './styles/style.scss';
 import Button from './js/components/Button';
 require('./js/tools.js')();
-<<<<<<< HEAD
-=======
 // require('./js/slider.js').default();
->>>>>>> couleur entete + json
 
 Array.from(document.body.querySelectorAll('.button')).forEach((button) => {
   new Button(button);
 });
 
 ajax('./src/assets/models/models.json', {}, function (datas) {
+  console.log(datas);
   let slider_auto_entete = document.getElementById('slider-auto-entete');
   let slider_best_seller = document.getElementById('slider-best-seller');
   let section_entete = document.getElementById('entete');
-<<<<<<< HEAD
 
   //SLIDER AUTO ENTETE
   for (let item of datas) {
     if (item.hero == true) {
-      slider_auto_entete.appendChild(getProduct(item,section_entete));
+      slider_auto_entete.appendChild(getProduct(item, section_entete));
     }
   }
 
@@ -68,8 +65,6 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
 
   console.log('visibles', articles);
 
-});
-=======
   let first_products = document.getElementById('first-products');
   let all_products = document.getElementById('all-products');
 
@@ -87,23 +82,22 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   //==================================
   //SLIDER BEST SELLER
   //==================================
-  displayProductsBestSeller(slider_best_seller,false,datas);
+  displayProductsBestSeller(slider_best_seller, false, datas);
 
   //==================================
   //AFFICHAGE DE TOUT LES PRODUITS
   //==================================
 
   // Juste 5
-  displayProducts(first_products,false,datas);
+  displayProducts(first_products, false, datas);
 
   // voir tout
-  displayProducts(all_products,true,datas);
+  displayProducts(all_products, true, datas);
 
 
 });
 
 
->>>>>>> couleur entete + json
 
 
 
@@ -138,22 +132,14 @@ function getArticle(item) {
 
   return article;
 }
-
-<<<<<<< HEAD
-function getProduct(item,section_entete) {
-=======
 function getProduct(item, section_entete) {
->>>>>>> couleur entete + json
   section_entete.style.backgroundColor = getColor(item.specs.color);
 
   let container = document.createElement('div');
   container.classList.add('div-product');
   container.style.display = 'none';
-<<<<<<< HEAD
-  container.setAttribute('data-color',item.specs.color);
-=======
   container.setAttribute('data-color', item.specs.color);
->>>>>>> couleur entete + json
+
 
   let article = document.createElement('article');
   article.classList.add('product');
@@ -201,17 +187,14 @@ function getVisibleArticles(slider) {
   return tab;
 }
 
-<<<<<<< HEAD
-=======
 function getAllArticles(slider) {
   let tab = [];
   slider.children.forEach(function (item, index, array) {
-      tab.push(item);
+    tab.push(item);
   });
   return tab;
 }
 
->>>>>>> couleur entete + json
 function getImage(src, classname) {
   let img = document.createElement('img');
   img.setAttribute('src', src);
@@ -241,13 +224,6 @@ function getButtonCommander() {
   return div_button;
 }
 
-<<<<<<< HEAD
-function getColor(color)
-{
-  switch(color){
-    case 'Rouge Feu': return '#009f55';
-    case 'Vert Gazon': return '#e73025';
-=======
 function getColor(color) {
   switch (color) {
     case 'Rouge Feu': return '#e73025';
@@ -281,27 +257,26 @@ function slidermove(slider_auto_entete) {
   }
 }
 
-function displayProducts(container, all, datas){
+function displayProducts(container, all, datas) {
   for (let item of datas) {
     container.appendChild(getArticle(item));
   }
   let tab = getVisibleArticles(container);
-  if(all){tab = getAllArticles(container);}
+  if (all) { tab = getAllArticles(container); }
   for (let item of tab) {
     item.style.display = 'initial';
   }
 }
 
-function displayProductsBestSeller(container, all, datas){
+function displayProductsBestSeller(container, all, datas) {
   for (let item of datas) {
-    if(item.best == true){
+    if (item.best == true) {
       container.appendChild(getArticle(item));
     }
   }
   let tab = getVisibleArticles(container);
-  if(all){tab = getAllArticles(container);}
+  if (all) { tab = getAllArticles(container); }
   for (let item of tab) {
     item.style.display = 'initial';
->>>>>>> couleur entete + json
   }
 }
