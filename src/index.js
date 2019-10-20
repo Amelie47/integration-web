@@ -2,6 +2,10 @@
 import './styles/style.scss';
 import Button from './js/components/Button';
 require('./js/tools.js')();
+<<<<<<< HEAD
+=======
+// require('./js/slider.js').default();
+>>>>>>> couleur entete + json
 
 Array.from(document.body.querySelectorAll('.button')).forEach((button) => {
   new Button(button);
@@ -11,6 +15,7 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   let slider_auto_entete = document.getElementById('slider-auto-entete');
   let slider_best_seller = document.getElementById('slider-best-seller');
   let section_entete = document.getElementById('entete');
+<<<<<<< HEAD
 
   //SLIDER AUTO ENTETE
   for (let item of datas) {
@@ -64,6 +69,41 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   console.log('visibles', articles);
 
 });
+=======
+  let first_products = document.getElementById('first-products');
+  let all_products = document.getElementById('all-products');
+
+  //==================================
+  //SLIDER AUTO ENTETE
+  //==================================
+  for (let item of datas) {
+    if (item.hero == true) {
+      slider_auto_entete.appendChild(getProduct(item, section_entete));
+    }
+  }
+  slidermove(slider_auto_entete);
+
+
+  //==================================
+  //SLIDER BEST SELLER
+  //==================================
+  displayProductsBestSeller(slider_best_seller,false,datas);
+
+  //==================================
+  //AFFICHAGE DE TOUT LES PRODUITS
+  //==================================
+
+  // Juste 5
+  displayProducts(first_products,false,datas);
+
+  // voir tout
+  displayProducts(all_products,true,datas);
+
+
+});
+
+
+>>>>>>> couleur entete + json
 
 
 
@@ -99,13 +139,21 @@ function getArticle(item) {
   return article;
 }
 
+<<<<<<< HEAD
 function getProduct(item,section_entete) {
+=======
+function getProduct(item, section_entete) {
+>>>>>>> couleur entete + json
   section_entete.style.backgroundColor = getColor(item.specs.color);
 
   let container = document.createElement('div');
   container.classList.add('div-product');
   container.style.display = 'none';
+<<<<<<< HEAD
   container.setAttribute('data-color',item.specs.color);
+=======
+  container.setAttribute('data-color', item.specs.color);
+>>>>>>> couleur entete + json
 
   let article = document.createElement('article');
   article.classList.add('product');
@@ -153,6 +201,17 @@ function getVisibleArticles(slider) {
   return tab;
 }
 
+<<<<<<< HEAD
+=======
+function getAllArticles(slider) {
+  let tab = [];
+  slider.children.forEach(function (item, index, array) {
+      tab.push(item);
+  });
+  return tab;
+}
+
+>>>>>>> couleur entete + json
 function getImage(src, classname) {
   let img = document.createElement('img');
   img.setAttribute('src', src);
@@ -182,10 +241,67 @@ function getButtonCommander() {
   return div_button;
 }
 
+<<<<<<< HEAD
 function getColor(color)
 {
   switch(color){
     case 'Rouge Feu': return '#009f55';
     case 'Vert Gazon': return '#e73025';
+=======
+function getColor(color) {
+  switch (color) {
+    case 'Rouge Feu': return '#e73025';
+    case 'Vert Gazon': return '#009f55';
+    case 'Bleu nuit': return '#231F6A';
+    case 'Blanc': return '#CCCCCC';
+    case 'Gris Souris': return '#CCCCCC';
+    case 'Jaune Poussin': return '#FFBE00';
+  }
+}
+
+function slidermove(slider_auto_entete) {
+  let n = 0;
+  slider_auto_entete.children[1].style.display = 'flex';
+  let interval = setInterval(displayed, 3000);
+  function displayed() {
+    slider_auto_entete.children.forEach(function (item, index, array) {
+      if (index == n) {
+        item.style.display = 'flex';
+        section_entete.style.backgroundColor = getColor(item.getAttribute('data-color'));
+      } else {
+        item.style.display = 'none';
+      }
+    });
+    n++;
+
+    //retour au début
+    if (n >= slider_auto_entete.children.length) {
+      n = 0;
+    }
+  }
+}
+
+function displayProducts(container, all, datas){
+  for (let item of datas) {
+    container.appendChild(getArticle(item));
+  }
+  let tab = getVisibleArticles(container);
+  if(all){tab = getAllArticles(container);}
+  for (let item of tab) {
+    item.style.display = 'initial';
+  }
+}
+
+function displayProductsBestSeller(container, all, datas){
+  for (let item of datas) {
+    if(item.best == true){
+      container.appendChild(getArticle(item));
+    }
+  }
+  let tab = getVisibleArticles(container);
+  if(all){tab = getAllArticles(container);}
+  for (let item of tab) {
+    item.style.display = 'initial';
+>>>>>>> couleur entete + json
   }
 }
