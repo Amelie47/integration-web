@@ -1,6 +1,7 @@
 
 import './styles/style.scss';
 import Button from './js/components/Button';
+import Slider from './js/components/Slider';
 require('./js/tools.js')();
 // require('./js/slider.js').default();
 
@@ -9,7 +10,8 @@ Array.from(document.body.querySelectorAll('.button')).forEach((button) => {
 });
 
 ajax('./src/assets/models/models.json', {}, function (datas) {
-  console.log(datas);
+
+
   let slider_auto_entete = document.getElementById('slider-auto-entete');
   let slider_best_seller = document.getElementById('slider-best-seller');
   let section_entete = document.getElementById('entete');
@@ -53,6 +55,7 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   //SLIDER BEST SELLER
   //==================================
   displayProductsBestSeller(slider_best_seller, false, datas);
+
 
   //==================================
   //AFFICHAGE DE TOUT LES PRODUITS

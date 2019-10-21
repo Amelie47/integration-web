@@ -1,0 +1,43 @@
+.title{
+    margin-top: 50px;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.item{
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 15px 35px #3232321a, 0 5px 15px #0000001a;
+}
+
+.item__body{
+    padding: 25px;
+}
+
+.item__title{
+    font-size: 24px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: #232323;
+}
+
+/* CAROUSEL */
+.carousel{
+    position: relative;
+}
+.carousel__container:after{
+    content: '';
+    clear: both;
+    display: table;
+}
+.carousel__item{
+    float: left;
+}
+.carousel__next, .carousel__prev{
+    top: 50%;
+}
+.carousel__next--hidden, .carousel__prev--hidden{
+    opacity: 0;
+}
+

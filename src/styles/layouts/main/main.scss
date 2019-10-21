@@ -5,59 +5,6 @@
 @import "nav";
 @import "footer";
 
-/******************************************
- * Layout base styles
- ******************************************/
-body{
-  font-family: 'Arial';
-  /*  display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;*/
-}
-main {
-  margin:0;
-  display: block;
-}
-
-
-//======Section sizes===================
-.section-size{
-  width:923px;
-  margin: auto;
-}
-.little-section-size{
-  width: 742px;
-  margin: auto;
-}
-
-
-//======Styles===================
-.ft-14{font-size:14px;}
-.spacebetween{
-  display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-basis: auto;
-  justify-content: space-between;
-}
-.relative{position:relative;}
-.button{
-  text-decoration: none;
-  padding:16px 13px;
-  border: solid 1px;
-  background-color: transparent;
-}
-.arrow-button{margin-left:50px;}
-.big-title{font-size: 24px;}
-.title{font-size: 1rem;}
-.header-section{margin-bottom:43px;}
-.div-arrows{
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-label{padding-right: 10px;}
-
 
 //======En-tête===================
 #entete{
@@ -102,14 +49,7 @@ label{padding-right: 10px;}
   font-size: 11px;
   margin:0;
 }
-.button-commander{
-  margin-top:200px;
-  color:white;
-  text-decoration: none;
-  padding:16px 9px;
-  border-color: white;
-  background-color: transparent;
-}
+
 
 
 //======Best seller===================
@@ -128,9 +68,9 @@ label{padding-right: 10px;}
   box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.33);
   width: 114px;
 }
-.active-product{
-  display: initial;
-}
+// .active-product{
+//   display: initial;
+// }
 //====SLIDER====
 .article-card{
   width:180px;
@@ -414,22 +354,4 @@ label{padding-right: 10px;}
 
 #all-products > article{
   margin-top: 10px;
-}
-
-
-//======Footer===================
-footer{
-  background-color: #170cff;
-  color: white;
-}
-footer section{
-  display: flex;
-  justify-content: space-between;
-  padding:50px 0 47px 0;
-}
-footer p{
-  margin-bottom: 36px;
-}
-footer li{
-  color: #a29eff;
 }
