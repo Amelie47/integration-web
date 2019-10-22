@@ -8,9 +8,9 @@ export default class Carousel {
         this.options = Object.assign({}, {
             slidesToScroll: 1,
             slidesVisible: 1,
-            loop: false,
+            loop: true,
             transitionTime: 0.3,
-            auto: true
+            auto: false
         }, options);
         this.children = [].slice.call(element.children);
         this.root = this.createDivWithClass('carousel');
@@ -19,15 +19,15 @@ export default class Carousel {
         this.isMobile = false;
 
         this.createStructure();
-        this.createNavigation();
+        if(this.options.auto){
+            console.log('auto');
+        }else{
+            this.createNavigation();
+        }
         this.moveCallBacks.forEach(cb => cb(0));
 
         this.screenResize();
         window.addEventListener('resize', this.screenResize.bind(this));
-
-        if(this.options.auto){
-            let interval = setInterval(console.log('hop'),1000);
-        }
     }
 
     /**
@@ -35,6 +35,7 @@ export default class Carousel {
      */
     createStructure() {
         this.container = this.createDivWithClass('carousel__container');
+        this.container.style.display = 'flex';
         this.setTransition();
 
         this.root.appendChild(this.container);
@@ -62,6 +63,12 @@ export default class Carousel {
         return div;
     }
 
+    createButtonWithClass(classname) {
+        let btn = document.createElement('button');
+        btn.classList.add(classname);
+        return btn;
+    }
+
     /**
      * Appliquer les largeurs correspondantes
      */
@@ -77,30 +84,16 @@ export default class Carousel {
      * Ajoute les bouttons pour la navigation
      */
     createNavigation() {
-        let nextButton = this.createDivWithClass('carousel__next');
-        nextButton.innerHTML = '>';
-        // nextButton.classList.add('arrow-droite');
-        let prevButton = this.createDivWithClass('carousel__prev');
-        prevButton.innerHTML = '<';
-        // prevButton.classList.add('arrow-gauche');
+        let nextButton = this.createButton('arrow-droite', '/src/assets/images/Droite.png');
+        let prevButton = this.createButton('arrow-gauche', '/src/assets/images/Gauche.png');
 
-        // let nextButton = document.createElement('button');
-        // nextButton.classList.add('arrow-slider');
-        // nextButton.classList.add('arrow-droite');
-        // nextButton.innerHTML = '>';
-
-        // let prevButton = document.createElement('button');
-        // prevButton.classList.add('arrow-slider');
-        // prevButton.classList.add('arrow-gauche');
-        // prevButton.innerHTML = '<';
-
-        this.root.appendChild(nextButton);
-        this.root.appendChild(prevButton);
+        this.element.parentNode.appendChild(nextButton);
+        this.element.parentNode.appendChild(prevButton);
 
         nextButton.addEventListener('click', this.next.bind(this));
         prevButton.addEventListener('click', this.prev.bind(this));
 
-        if (!this.options.loop) {
+        if (this.options.loop) {
             return;
         }
         this.onMove(index => {
@@ -115,6 +108,17 @@ export default class Carousel {
                 nextButton.classList.remove('carousel__next--hidden');
             }
         })
+    }
+
+    createButton(classname, src){
+        let button_div = document.createElement('div');
+        let btn = this.createButtonWithClass('arrow-slider');
+        btn.classList.add(classname);
+        let img = document.createElement('img');
+        img.setAttribute('src', src);
+        btn.appendChild(img);
+        button_div.appendChild(btn);
+        return button_div;
     }
 
     next() {

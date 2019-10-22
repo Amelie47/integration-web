@@ -11,7 +11,6 @@ Array.from(document.body.querySelectorAll('.button')).forEach((button) => {
 
 ajax('./src/assets/models/models.json', {}, function (datas) {
 
-
   let slider_auto_entete = document.getElementById('slider-auto-entete');
   let slider_best_seller = document.getElementById('slider-best-seller');
   let section_entete = document.getElementById('entete');
@@ -54,67 +53,119 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   //==================================
   //SLIDER BEST SELLER
   //==================================
-  displayProductsBestSeller(slider_best_seller, false, datas);
-
+  displayProducts(slider_best_seller, datas);
+  let sliderbestseller = new Slider(slider_best_seller, {
+    slidesVisible: 5,
+    transitionTime: 0.5
+  });
 
   //==================================
   //AFFICHAGE DE TOUT LES PRODUITS
   //==================================
 
   // Juste 5
-  displayProducts(first_products, false, datas);
-
-  // voir tout
-  displayProducts(all_products, true, datas);
+  displayProducts(first_products, datas);
+  setWidthItems(first_products);
+  setHeightItems(first_products);
   let btn_voir_tout = document.getElementById('btn-voir-tout');
   let see = false;
+  let h = first_products.offsetHeight;
+  first_products.style.height = 0 + getMaxHeight(first_products) + "px";
+
+  let fleche_down = document.createElement('img');
+  fleche_down.setAttribute('src', '/src/assets/images/Fleche-down.png');
+  fleche_down.setAttribute('id','fleche-down');
+
+  let rotate = 180;
+
   btn_voir_tout.addEventListener('click', function () {
     if (!see) {
-      all_products.style.display = 'flex';
+      first_products.style.height = h + "px";
+      btn_voir_tout.innerHTML = 'Cacher les modèles';
       see = true;
     } else {
-      all_products.style.display = 'none';
+      first_products.style.height = 0 + getMaxHeight(first_products) + "px";
+      btn_voir_tout.innerHTML = 'Voir les modèles';
       see = false;
     }
+    fleche_down.style.transform = 'rotate('+ rotate +'deg)';
+    rotate += 180;
+    btn_voir_tout.prepend(fleche_down);
+    window.scrollTo(getPos(first_products).x, getPos(first_products).y);
   })
-
 });
 
 
+function getPos(el) {
+  // yay readability
+  for (var lx=0, ly=0;
+       el != null;
+       lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
+  return {x: lx,y: ly};
+}
 
+function setWidthItems(tab){
+  tab.children.forEach(function(item){
+    item.style.width = ((1/5) * tab.parentNode.offsetWidth - 6) + 'px';
+  });
+}
+
+function getMaxHeight(tab){
+  let h = 0;
+  let t = [];
+  tab.children.forEach(function(item){
+    if(item.offsetHeight > h){
+      h = item.offsetHeight;
+    }
+    t.push(item.offsetHeight);
+  });
+  return h;
+}
+
+function setHeightItems(tab){
+  tab.children.forEach(function(item){
+    item.style.height = getMaxHeight(tab) + "px";
+  });
+}
 
 
 function getArticle(item) {
-  let div_img = document.createElement('div');
-  div_img.classList.add('div-img');
-
+  let item_div = createDivWithClass('item');
+  let item_body = createDivWithClass('item__body');
+  let item_img = createDivWithClass('item__img');
+  let img = createImgWithSrc(item.images.small);
+  let item_content = createDivWithClass('item__content');
+  if(item.stock <= 1){
+    item_content.classList.add('stock-danger');
+  }
   let title = document.createElement('h2');
-  title.classList.add('title-article');
-
+  title.classList.add('content__title');
   let description = document.createElement('p');
-  description.classList.add('article-desc');
-
+  description.classList.add('content__desc');
   let stock = document.createElement('p');
-  stock.classList.add('article-stock');
+  stock.classList.add('content__stock');
 
   title.innerHTML = item.title;
   description.innerHTML = item.specs.engine + ' - ' + item.specs.color;
   stock.innerHTML = item.stock + ' en stock';
 
-  let article = document.createElement('article');
-  article.classList.add('article-card');
-  article.classList.add('relative');
-  if (item.stock <= 1) { article.classList.add('stock-danger'); }
-  article.style.display = 'none';
+  item_img.appendChild(img);
+  item_content.appendChild(title);
+  item_content.appendChild(description);
+  item_content.appendChild(stock);
+  item_body.appendChild(item_img);
+  item_body.appendChild(item_content);
+  item_div.appendChild(item_body);
 
-  div_img.appendChild(getImage(item.images.small, 'img-article'));
-  article.appendChild(div_img);
-  article.appendChild(title);
-  article.appendChild(description);
-  article.appendChild(stock);
-
-  return article;
+  return item_div;
 }
+
+function createDivWithClass(classname){
+  let div = document.createElement('div');
+  div.classList.add(classname);
+  return div;
+}
+
 function getProduct(item, section_entete) {
   section_entete.style.backgroundColor = getColor(item.specs.color);
 
@@ -142,7 +193,8 @@ function getProduct(item, section_entete) {
   let color = document.createElement('p');
   color.classList.add('product-content');
 
-  let img = getImage(item.images.big, 'img-entete');
+  let img = createImgWithSrc(item.images.big);
+  img.classList.add('img-entete');
 
   container.appendChild(img);
   container.appendChild(article);
@@ -178,11 +230,9 @@ function getAllArticles(slider) {
   return tab;
 }
 
-function getImage(src, classname) {
+function createImgWithSrc(src) {
   let img = document.createElement('img');
   img.setAttribute('src', src);
-  img.classList.add(classname);
-
   return img;
 }
 
@@ -211,33 +261,21 @@ function getColor(color) {
   switch (color) {
     case 'Rouge Feu': return '#e73025';
     case 'Vert Gazon': return '#009f55';
-    case 'Bleu nuit': return '#231F6A';
+    case 'Bleu Nuit': return '#231F6A';
     case 'Blanc': return '#CCCCCC';
     case 'Gris Souris': return '#CCCCCC';
     case 'Jaune Poussin': return '#FFBE00';
   }
 }
 
-function displayProducts(container, all, datas) {
-  for (let item of datas) {
-    container.appendChild(getArticle(item));
-  }
-  let tab = getVisibleArticles(container);
-  if (all) { tab = getAllArticles(container); }
-  for (let item of tab) {
-    item.style.display = 'initial';
-  }
-}
-
-function displayProductsBestSeller(container, all, datas) {
+function displayProducts(container, datas) {
   for (let item of datas) {
     if (item.best == true) {
       container.appendChild(getArticle(item));
     }
   }
-  let tab = getVisibleArticles(container);
-  if (all) { tab = getAllArticles(container); }
-  for (let item of tab) {
-    item.style.display = 'initial';
-  }
 }
+
+// function getMaxWidth(tab){
+
+// }
