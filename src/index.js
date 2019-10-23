@@ -25,29 +25,15 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
       slider_auto_entete.appendChild(getProduct(item, section_entete));
     }
   }
-  slidermove();
-
-  function slidermove() {
-    let n = 0;
-    slider_auto_entete.children[1].style.display = 'flex';
-    let interval = setInterval(displayed, 3000);
-    function displayed() {
-      slider_auto_entete.children.forEach(function (item, index, array) {
-        if (index == n) {
-          item.style.display = 'flex';
-          section_entete.style.backgroundColor = getColor(item.getAttribute('data-color'));
-        } else {
-          item.style.display = 'none';
-        }
-      });
-      n++;
-
-      //retour au début
-      if (n >= slider_auto_entete.children.length) {
-        n = 0;
-      }
-    }
-  }
+  let sliderentete = new Slider(slider_auto_entete, {
+    slidesVisible: 1,
+    auto:{
+      bool:true,
+      interval: 5000
+    },
+    anime: 'translateY',
+    transitionTime: 0.7
+  });
 
 
   //==================================
@@ -97,7 +83,6 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
 
 
 function getPos(el) {
-  // yay readability
   for (var lx=0, ly=0;
        el != null;
        lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
@@ -171,7 +156,6 @@ function getProduct(item, section_entete) {
 
   let container = document.createElement('div');
   container.classList.add('div-product');
-  container.style.display = 'none';
   container.setAttribute('data-color', item.specs.color);
 
 

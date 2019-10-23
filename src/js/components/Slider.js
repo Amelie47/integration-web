@@ -10,18 +10,20 @@ export default class Carousel {
             slidesVisible: 1,
             loop: true,
             transitionTime: 0.3,
-            auto: false
+            auto: {bool: false, interval: 0},
+            anime: 'translateX'
         }, options);
         this.children = [].slice.call(element.children);
         this.root = this.createDivWithClass('carousel');
         this.currentItem = 0;
         this.moveCallBacks = [];
         this.isMobile = false;
+        this.index = 0;
 
         this.createStructure();
-        if(this.options.auto){
-            console.log('auto');
-        }else{
+        if (this.options.auto.bool) {
+            this.autoSlide();
+        } else {
             this.createNavigation();
         }
         this.moveCallBacks.forEach(cb => cb(0));
@@ -110,7 +112,7 @@ export default class Carousel {
         })
     }
 
-    createButton(classname, src){
+    createButton(classname, src) {
         let button_div = document.createElement('div');
         let btn = this.createButtonWithClass('arrow-slider');
         btn.classList.add(classname);
@@ -136,13 +138,12 @@ export default class Carousel {
         // Aller à la fin si click prev et qu'il y a rien au début
         if (index < 0) {
             index = this.items.length - this.slidesVisible;
-        }else if (index >= this.items.length || (this.items[this.currentItem + this.slidesVisible] === undefined && index > this.currentItem)) {
+        } else if (index >= this.items.length || (this.items[this.currentItem + this.slidesVisible] === undefined && index > this.currentItem)) {
             index = 0;
         }
 
-        let calcul = index * -100 / this.items.length
-        this.container.style.transform = 'translate3d(' + calcul + '%,0,0)';
         this.currentItem = index;
+        this.setStyleTransition();
 
         this.moveCallBacks.forEach(cb => cb(index));
     }
@@ -155,9 +156,34 @@ export default class Carousel {
      * Ajoute une transition au défilement
      */
     setTransition() {
-        this.container.style.transition = 'transform '+ this.options.transitionTime +'s, opacity '+ this.options.transitionTime +'s';
-        this.container.style.transform = 'translate3d(0,0,0)';
+        this.container.style.transition = this.options.transitionTime + 's all';
+        switch (this.options.anime) {
+            case 'translateX': this.container.style.transform = 'translate3d(0,0,0)'; break;
+        }
     }
+    setStyleTransition() {
+        let calcul = this.currentItem  * -100 / this.items.length;
+        switch (this.options.anime) {
+            case 'translateX': this.container.style.transform = 'translate3d(' + calcul + '%,0,0)'; break;
+            case 'translateY':
+                this.container.style.transform = 'translate3d(0,' + calcul + '%,0)';
+                this.root.style.height = this.container.firstChild.offsetHeight + 'px';
+                this.container.children.forEach((item) => {
+                    item.classList.remove('carousel__item');
+                })
+                this.container.style.display = 'block';
+                this.container.children.forEach((item) => {
+                    let img = item.getElementsByTagName('img');
+                    img[0].style.opacity = '0';
+                })
+                let current_img = this.findCurrentSlideWithHeight(this.currentItem).getElementsByTagName('img');
+                current_img[0].style.opacity = '1';
+
+                break;
+        }
+    }
+
+
 
     screenResize() {
         let mobile = window.innerWidth < 800;
@@ -168,13 +194,36 @@ export default class Carousel {
         }
     }
 
+    autoSlide() {
+        setInterval(() => {
+            this.next();
+        }, this.options.auto.interval);
+    }
+
+    findCurrentSlideWithHeight(index) {
+        let current;
+        this.container.children.forEach((item) => {
+            if(this.getPos(item).y == this.getPos(this.container).y + this.container.firstChild.offsetHeight * index){
+                current = item;
+            }
+        })
+        return current;
+    }
+
+    getPos(el) {
+        for (var lx = 0, ly = 0;
+            el != null;
+            lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
+        return { x: lx, y: ly };
+    }
+
     /**
      * @return {number}
      */
     get slidesToScroll() {
-        if(this.isMobile){
+        if (this.isMobile) {
             return 1;
-        }else{
+        } else {
             return this.options.slidesToScroll;
         }
     }
@@ -183,9 +232,9 @@ export default class Carousel {
      * @return {number}
      */
     get slidesVisible() {
-        if(this.isMobile){
+        if (this.isMobile) {
             return 1;
-        }else{
+        } else {
             return this.options.slidesVisible;
         }
     }
