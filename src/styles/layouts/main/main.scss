@@ -13,6 +13,7 @@
   height: 400px;
   overflow: hidden;
   background-color: gray;
+  transition: 0.5s ease;
 }
 #entete--overflowhidden{
   overflow: hidden;
@@ -32,7 +33,7 @@
   transform: translateX(-70px);
   z-index: 0;
   // display: none;
-  opacity: 0;
+  opacity: 1;
   transition: 0.5s ease-in-out;
 }
 
@@ -282,6 +283,14 @@
   text-decoration: none;
   background-color: transparent;
 }
+.section-modeles .item__content{
+  border-bottom: solid 5px #d6d6d6;
+}
+.section-modeles .stock-danger{
+  border-bottom: solid 5px #ff3f0c;
+}
+
+
 .voir-tout{
   display: flex;
   padding-top: 35px;

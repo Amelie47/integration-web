@@ -51,24 +51,6 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   //==================================
   //AFFICHAGE DE TOUT LES PRODUITS
   //==================================
-
-  //search
-  document.getElementById('search').addEventListener('keyup', function(){
-    let filter = this.value;
-    for (let i = 0; i < first_products.children.length; i++) {
-      let title = first_products.children[i].getElementsByClassName("content__title")[0];
-      let value = title.textContent || title.innerText;
-      if (value.indexOf(filter) > -1) {
-        first_products.children[i].style.display = "";
-      } else {
-        first_products.children[i].style.display = "none";
-      }
-    }
-  })
-
-
-
-  //affichage
   let slidernouveautes = new Slider(slider_nouveautes, {
     slidesVisible: 1,
     auto: {
@@ -83,9 +65,23 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   //==================================
   //AFFICHAGE DE TOUT LES PRODUITS
   //==================================
+  //search
+  document.getElementById('search').addEventListener('keyup', function () {
+    let filter = this.value;
+    for (let i = 0; i < first_products.children.length; i++) {
+      let title = first_products.children[i].getElementsByClassName("content__title")[0];
+      let value = title.textContent || title.innerText;
+      if (value.indexOf(filter) > -1) {
+        first_products.children[i].style.display = "";
+      } else {
+        first_products.children[i].style.display = "none";
+      }
+    }
+  })
 
-  // Juste 5
-  displayProducts(first_products, datas);
+
+  // Affichage
+  displayAllProducts(first_products, datas);
   setWidthItems(first_products);
   setHeightItems(first_products);
   let btn_voir_tout = document.getElementById('btn-voir-tout');
@@ -112,7 +108,6 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
     fleche_down.style.transform = 'rotate(' + rotate + 'deg)';
     rotate += 180;
     btn_voir_tout.prepend(fleche_down);
-    window.scrollTo(getPos(first_products).x, getPos(first_products).y);
   })
 });
 
@@ -187,12 +182,9 @@ function createDivWithClass(classname) {
 }
 
 function getProduct(item, section_entete) {
-  section_entete.style.backgroundColor = getColor(item.specs.color);
-
   let container = document.createElement('div');
   container.classList.add('div-product');
   container.setAttribute('data-color', item.specs.color);
-
 
   let article = document.createElement('article');
   article.classList.add('product');
@@ -295,6 +287,8 @@ function displayProducts(container, datas) {
   }
 }
 
-// function getMaxWidth(tab){
-
-// }
+function displayAllProducts(container, datas) {
+  for (let item of datas) {
+    container.appendChild(getArticle(item));
+  }
+}

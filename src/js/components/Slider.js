@@ -11,7 +11,7 @@ export default class Carousel {
             slidesVisible: 1,
             loop: true,
             transitionTime: 0.3,
-            auto: { bool: false, interval: 0, nav: true, stopHover: false },
+            auto: { bool: false, interval: 0, nav: true, stopHover: false},
             anime: 'translateX'
         }, options);
         this.children = [].slice.call(element.children);
@@ -27,7 +27,7 @@ export default class Carousel {
             setInterval(() => {
                 if(!this.isScrollPaused) this.next();
             }, this.options.auto.interval);
-            this.setEventSliderPause();
+            if(this.options.auto.stopHover){this.setEventSliderPause();}
         }
         if (this.options.auto.nav) {
             this.createNavigation();
@@ -43,7 +43,6 @@ export default class Carousel {
      */
     createStructure() {
         this.container = this.createDivWithClass('carousel__container');
-        this.container.style.display = 'flex';
         this.setTransition();
 
         this.root.appendChild(this.container);
@@ -86,6 +85,18 @@ export default class Carousel {
 
         // Aligner les item en affectant une width en fonction du nombre de slides visibles
         this.items.forEach(item => item.style.width = (100 / this.slidesVisible) / ratio + "%");
+
+        switch (this.options.anime) {
+            case 'translateX': this.container.style.display = 'flex'; break;
+            case 'translateY':
+                this.container.style.display = 'block';
+                this.root.style.height = this.container.firstChild.offsetHeight + 'px';
+                this.container.children.forEach((item) => {
+                    item.classList.remove('carousel__item');
+                });
+                this.spacial_setColorBackground();
+                break;
+        }
     }
 
     /**
@@ -170,20 +181,20 @@ export default class Carousel {
     setStyleTransition() {
         let calcul = this.currentItem * -100 / this.items.length;
         switch (this.options.anime) {
-            case 'translateX': this.container.style.transform = 'translate3d(' + calcul + '%,0,0)'; break;
+            case 'translateX':
+                this.container.style.transform = 'translate3d(' + calcul + '%,0,0)';
+                this.container.style.display = 'flex';
+                break;
             case 'translateY':
                 this.container.style.transform = 'translate3d(0,' + calcul + '%,0)';
-                this.root.style.height = this.container.firstChild.offsetHeight + 'px';
-                this.container.children.forEach((item) => {
-                    item.classList.remove('carousel__item');
-                })
-                this.container.style.display = 'block';
                 this.container.children.forEach((item) => {
                     let img = item.getElementsByTagName('img');
                     img[0].style.opacity = '0';
                 })
                 let current_img = this.findCurrentSlideWithHeight(this.currentItem).getElementsByTagName('img');
                 current_img[0].style.opacity = '1';
+
+                this.spacial_setColorBackground();
 
                 break;
         }
@@ -223,6 +234,22 @@ export default class Carousel {
             lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
         return { x: lx, y: ly };
     }
+
+    spacial_setColorBackground(){
+        let entete = document.getElementById('entete');
+        entete.style.backgroundColor = this.special_getColorBackground(this.findCurrentSlideWithHeight(this.currentItem).getElementsByClassName('div-product')[0].getAttribute('data-color'));
+    }
+
+    special_getColorBackground(color) {
+        switch (color) {
+          case 'Rouge Feu': return '#e73025';
+          case 'Vert Gazon': return '#009f55';
+          case 'Bleu Nuit': return '#231F6A';
+          case 'Blanc': return '#CCCCCC';
+          case 'Gris Souris': return '#CCCCCC';
+          case 'Jaune Poussin': return '#FFBE00';
+        }
+      }
 
     /**
      * @return {number}
