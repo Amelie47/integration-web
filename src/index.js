@@ -14,6 +14,7 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   let slider_auto_entete = document.getElementById('slider-auto-entete');
   let slider_best_seller = document.getElementById('slider-best-seller');
   let section_entete = document.getElementById('entete');
+  let slider_nouveautes = document.getElementById('slider_nouveautes');
   let first_products = document.getElementById('first-products');
   let all_products = document.getElementById('all-products');
 
@@ -29,7 +30,9 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
     slidesVisible: 1,
     auto:{
       bool:true,
-      interval: 5000
+      interval: 5000,
+      nav:false,
+      stopHover:false
     },
     anime: 'translateY',
     transitionTime: 0.7
@@ -43,6 +46,20 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   let sliderbestseller = new Slider(slider_best_seller, {
     slidesVisible: 5,
     transitionTime: 0.5
+  });
+
+  //==================================
+  //AFFICHAGE DE TOUT LES PRODUITS
+  //==================================
+  let slidernouveautes = new Slider(slider_nouveautes, {
+    slidesVisible: 1,
+    auto:{
+      bool:true,
+      interval: 7000,
+      nav:false,
+      stopHover:true
+    },
+    transitionTime: 0.7
   });
 
   //==================================

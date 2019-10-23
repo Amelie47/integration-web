@@ -1,4 +1,5 @@
 export default class Carousel {
+    
     /**
      * @param {HTMLelement} element 
      * @param {objet} options 
@@ -10,7 +11,7 @@ export default class Carousel {
             slidesVisible: 1,
             loop: true,
             transitionTime: 0.3,
-            auto: {bool: false, interval: 0},
+            auto: { bool: false, interval: 0, nav: true, stopHover: false },
             anime: 'translateX'
         }, options);
         this.children = [].slice.call(element.children);
@@ -18,12 +19,17 @@ export default class Carousel {
         this.currentItem = 0;
         this.moveCallBacks = [];
         this.isMobile = false;
+        this.isScrollPaused = false;
         this.index = 0;
 
         this.createStructure();
         if (this.options.auto.bool) {
-            this.autoSlide();
-        } else {
+            setInterval(() => {
+                if(!this.isScrollPaused) this.next();
+            }, this.options.auto.interval);
+            this.setEventSliderPause();
+        }
+        if (this.options.auto.nav) {
             this.createNavigation();
         }
         this.moveCallBacks.forEach(cb => cb(0));
@@ -162,7 +168,7 @@ export default class Carousel {
         }
     }
     setStyleTransition() {
-        let calcul = this.currentItem  * -100 / this.items.length;
+        let calcul = this.currentItem * -100 / this.items.length;
         switch (this.options.anime) {
             case 'translateX': this.container.style.transform = 'translate3d(' + calcul + '%,0,0)'; break;
             case 'translateY':
@@ -183,8 +189,6 @@ export default class Carousel {
         }
     }
 
-
-
     screenResize() {
         let mobile = window.innerWidth < 800;
         if (mobile != this.isMobile) {
@@ -194,16 +198,19 @@ export default class Carousel {
         }
     }
 
-    autoSlide() {
-        setInterval(() => {
-            this.next();
-        }, this.options.auto.interval);
+    setEventSliderPause() {
+        this.container.addEventListener('mouseover', () => {
+            this.isScrollPaused = true;
+        });
+        this.container.addEventListener('mouseout', () => {
+            this.isScrollPaused = false;
+        });
     }
 
     findCurrentSlideWithHeight(index) {
         let current;
         this.container.children.forEach((item) => {
-            if(this.getPos(item).y == this.getPos(this.container).y + this.container.firstChild.offsetHeight * index){
+            if (this.getPos(item).y == this.getPos(this.container).y + this.container.firstChild.offsetHeight * index) {
                 current = item;
             }
         })
