@@ -28,11 +28,11 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   }
   let sliderentete = new Slider(slider_auto_entete, {
     slidesVisible: 1,
-    auto:{
-      bool:true,
+    auto: {
+      bool: true,
       interval: 5000,
-      nav:false,
-      stopHover:false
+      nav: false,
+      stopHover: false
     },
     anime: 'translateY',
     transitionTime: 0.7
@@ -51,13 +51,31 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   //==================================
   //AFFICHAGE DE TOUT LES PRODUITS
   //==================================
+
+  //search
+  document.getElementById('search').addEventListener('keyup', function(){
+    let filter = this.value;
+    for (let i = 0; i < first_products.children.length; i++) {
+      let title = first_products.children[i].getElementsByClassName("content__title")[0];
+      let value = title.textContent || title.innerText;
+      if (value.indexOf(filter) > -1) {
+        first_products.children[i].style.display = "";
+      } else {
+        first_products.children[i].style.display = "none";
+      }
+    }
+  })
+
+
+
+  //affichage
   let slidernouveautes = new Slider(slider_nouveautes, {
     slidesVisible: 1,
-    auto:{
-      bool:true,
+    auto: {
+      bool: true,
       interval: 7000,
-      nav:false,
-      stopHover:true
+      nav: false,
+      stopHover: true
     },
     transitionTime: 0.7
   });
@@ -77,7 +95,7 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
 
   let fleche_down = document.createElement('img');
   fleche_down.setAttribute('src', '/src/assets/images/Fleche-down.png');
-  fleche_down.setAttribute('id','fleche-down');
+  fleche_down.setAttribute('id', 'fleche-down');
 
   let rotate = 180;
 
@@ -91,7 +109,7 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
       btn_voir_tout.innerHTML = 'Voir les modèles';
       see = false;
     }
-    fleche_down.style.transform = 'rotate('+ rotate +'deg)';
+    fleche_down.style.transform = 'rotate(' + rotate + 'deg)';
     rotate += 180;
     btn_voir_tout.prepend(fleche_down);
     window.scrollTo(getPos(first_products).x, getPos(first_products).y);
@@ -100,23 +118,23 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
 
 
 function getPos(el) {
-  for (var lx=0, ly=0;
-       el != null;
-       lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
-  return {x: lx,y: ly};
+  for (var lx = 0, ly = 0;
+    el != null;
+    lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
+  return { x: lx, y: ly };
 }
 
-function setWidthItems(tab){
-  tab.children.forEach(function(item){
-    item.style.width = ((1/5) * tab.parentNode.offsetWidth - 6) + 'px';
+function setWidthItems(tab) {
+  tab.children.forEach(function (item) {
+    item.style.width = ((1 / 5) * tab.parentNode.offsetWidth - 6) + 'px';
   });
 }
 
-function getMaxHeight(tab){
+function getMaxHeight(tab) {
   let h = 0;
   let t = [];
-  tab.children.forEach(function(item){
-    if(item.offsetHeight > h){
+  tab.children.forEach(function (item) {
+    if (item.offsetHeight > h) {
       h = item.offsetHeight;
     }
     t.push(item.offsetHeight);
@@ -124,8 +142,8 @@ function getMaxHeight(tab){
   return h;
 }
 
-function setHeightItems(tab){
-  tab.children.forEach(function(item){
+function setHeightItems(tab) {
+  tab.children.forEach(function (item) {
     item.style.height = getMaxHeight(tab) + "px";
   });
 }
@@ -137,7 +155,7 @@ function getArticle(item) {
   let item_img = createDivWithClass('item__img');
   let img = createImgWithSrc(item.images.small);
   let item_content = createDivWithClass('item__content');
-  if(item.stock <= 1){
+  if (item.stock <= 1) {
     item_content.classList.add('stock-danger');
   }
   let title = document.createElement('h2');
@@ -162,7 +180,7 @@ function getArticle(item) {
   return item_div;
 }
 
-function createDivWithClass(classname){
+function createDivWithClass(classname) {
   let div = document.createElement('div');
   div.classList.add(classname);
   return div;
