@@ -1,0 +1,49 @@
+.section-nouveautes{
+  background-color: #0cff56;
+  padding-bottom: 100px;
+  overflow: hidden;
+  transform: skew(0deg,-2deg);
+}
+#div-sect{
+  padding-top: 43px;
+  transform: skew(0deg,2deg);
+}
+#div-sect > div{overflow: hidden;}
+.title-nouveautes{
+  text-align: center;
+  margin-bottom: 58px;
+}
+.section-nouveautes article{
+  padding-bottom: 34px;
+}
+#image{
+  margin-right: 25px;
+  flex:1;
+}
+#content-nouveaute{
+  padding: 0;
+  margin-left: 25px;
+  flex: 1;
+  font-size: 14px;
+}
+#content-nouveaute h1{
+  top:0;
+  margin-top: 0;
+}
+.button-nouveautes{
+  color: black;
+  border-color:black;
+}
+#bulles{
+  text-align: center;
+}
+
+.bulle:hover{
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce{
+  from {transform: translateY(0);}
+  50%  {transform: translateY(-4px);}
+  to   {transform: translateY(0);}
+}

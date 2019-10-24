@@ -47,35 +47,3 @@ main {
   margin:0;
   display: block;
 }
-
-
-//======Section sizes===================
-.section-size{
-  width:923px;
-  margin: auto;
-}
-.little-section-size{
-  width: 742px;
-  margin: auto;
-}
-
-
-//======Styles===================
-.ft-14{font-size:14px;}
-.spacebetween{
-  display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-basis: auto;
-  justify-content: space-between;
-}
-.relative{position:relative;}
-.big-title{font-size: 24px;}
-.title{font-size: 1rem;}
-.header-section{margin-bottom:43px;}
-.div-arrows{
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-label{padding-right: 10px;}

@@ -1,3 +1,6 @@
+import Utils from './Utils';
+let utils = new Utils();
+
 export default class Carousel {
     
     /**
@@ -15,7 +18,7 @@ export default class Carousel {
             anime: 'translateX'
         }, options);
         this.children = [].slice.call(element.children);
-        this.root = this.createDivWithClass('carousel');
+        this.root = utils.createDivWithClass('carousel');
         this.currentItem = 0;
         this.moveCallBacks = [];
         this.isMobile = false;
@@ -42,14 +45,14 @@ export default class Carousel {
      * Créer la strucuture du carousel (ajoute des div et des class)
      */
     createStructure() {
-        this.container = this.createDivWithClass('carousel__container');
+        this.container = utils.createDivWithClass('carousel__container');
         this.setTransition();
 
         this.root.appendChild(this.container);
         this.element.appendChild(this.root);
 
         this.items = this.children.map((child) => {
-            let item = this.createDivWithClass('carousel__item');
+            let item = utils.createDivWithClass('carousel__item');
             item.appendChild(child);
             this.container.appendChild(item);
 
@@ -57,17 +60,6 @@ export default class Carousel {
         });
 
         this.setStyle();
-    }
-
-    /**
-     * Créer une div avec une class
-     * @param {string} classname
-     * @return div
-     */
-    createDivWithClass(classname) {
-        let div = document.createElement('div');
-        div.classList.add(classname);
-        return div;
     }
 
     createButtonWithClass(classname) {
@@ -221,18 +213,11 @@ export default class Carousel {
     findCurrentSlideWithHeight(index) {
         let current;
         this.container.children.forEach((item) => {
-            if (this.getPos(item).y == this.getPos(this.container).y + this.container.firstChild.offsetHeight * index) {
+            if (utils.getPos(item).y == utils.getPos(this.container).y + this.container.firstChild.offsetHeight * index) {
                 current = item;
             }
         })
         return current;
-    }
-
-    getPos(el) {
-        for (var lx = 0, ly = 0;
-            el != null;
-            lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
-        return { x: lx, y: ly };
     }
 
     spacial_setColorBackground(){

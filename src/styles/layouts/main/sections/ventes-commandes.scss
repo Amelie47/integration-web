@@ -1,0 +1,32 @@
+.section-ventes{
+  background-color: #ff3f0c;
+  color: white;
+  padding: 50px 0 50px 0;
+  transform: skew(0deg,2deg);
+  margin-top: -50px;
+}
+.section-ventes > div{
+  padding-top: 43px;
+  transform: skew(0deg,-2deg);
+}
+.div-input-modele{
+  margin-right: 30px;
+}
+.section-ventes .input-sort{
+  border-color: white;
+  color: white;
+}
+.section-ventes .input-sort option{
+  color: black;
+}
+.div-graphics{
+  position: relative;
+  text-align: center;
+}
+.div-graphics img{
+  margin: auto;
+
+}
+#graph{
+  width: 100%;
+}

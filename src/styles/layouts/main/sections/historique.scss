@@ -1,0 +1,93 @@
+.section-historique{
+  padding: 20px 0 50px 0;
+  position: relative;
+  background-color: white;
+  margin-top: -50px;
+  z-index: 1;
+}
+.section-historique > div{
+  display: flex;
+}
+.div-historique{
+  width: 50%;
+  margin-right: 50px ;
+}
+.title-historique{
+  font-size: 18px;
+}
+.article-historique{
+  display: flex;
+  justify-content: space-between;
+  padding: 23px 0 23px 0;
+  border-bottom: 1px #d6d6d6 solid;
+}
+.article-historique:first-child{
+  padding-top: 0;
+}
+.article-historique:last-child{
+  border: none;
+  padding-bottom: 0;
+}
+.article-historique-content{
+  display: flex;
+}
+
+.article-historique-content .user-img{
+  width: 76px;
+  height: 76px;
+  margin-right: 19px;
+  border-radius: 50%;
+  border: #bebebe 1px solid;
+}
+
+.badge{
+  width: 76px;
+  height: 76px;
+  background-color: #d6d6d6;
+  border: #bebebe 1px solid;
+  border-radius: 50%;
+  transform: translateX(-35px);
+}
+.state-user-img{
+  height: 32px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  top: 50%;
+}
+.commande-danger .etat{color: #ff3f0c;}
+.commande-danger .badge{
+  border-color: #ff3f0c;
+  background-color: #ff3f0c;
+}
+.commande-danger .user-img{border-color: #ff3f0c;}
+
+.commande-ok .etat{color: #0cff56;}
+.commande-ok .badge{
+  border-color: #0cff56;
+  background-color: #0cff56;
+}
+.article-title{
+  margin: 0;
+}
+.article-by{
+  font-size: 11px;
+  margin: 0;
+}
+.etat{
+  position: absolute;
+  bottom: 0;
+  font-size: 11px;
+}
+.fleche-right{
+  margin-left: 10px;
+}
+.button-danger button{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  border-color: #ff3f0c;
+}
+.button-danger .fleche-right{
+  margin-left: 17px;
+}

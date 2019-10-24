@@ -2,17 +2,14 @@
  * Button component
  ******************************************/
  .button-commander{
-  margin-top:200px;
-  color:white;
   text-decoration: none;
-  padding:16px 9px;
-  border-color: white;
+  padding:13px 9px;
   background-color: transparent;
+  border: solid 1px;
 }
 .button{
   text-decoration: none;
-  padding:16px 13px;
-  border: solid 1px;
+  padding:13px 13px;
   background-color: transparent;
 }
 .arrow-button{
@@ -20,6 +17,12 @@
 }
 #btn-voir-tout:hover{
   cursor: pointer;
+}
+
+#entete .button-commander{
+  margin-top: 200px;
+  color: white;
+  border-color: white;
 }
 
 /********************
