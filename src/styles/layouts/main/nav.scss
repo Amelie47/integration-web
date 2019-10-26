@@ -5,19 +5,34 @@ ul{
   margin:0;
   list-style:none;
 }
-.nav-user p{
+.element{
   display: inline-block;
-  padding:46px 0 43px 0;
-  margin: 0 15px 0 15px;
+  padding:40px 0 36px 0;
+  margin: 0 13px 0 13px;
+}
+.nav-user p{
+  margin:0;
+}
+.nav-user p:after{
+  content:'|';
+  padding: 0 10px 0 10px;
+}
+.nav-user p:last-child{
+  margin-right: 0;
+}
+.nav-user p:last-child:after{
+  content: '';
+  padding: 0;
+}
+#plus{
+  padding: 0 10px 0 10px;
 }
 .nav-user p a{
   text-decoration: none;
   color:white;
 }
-.nav ul li{
-  display: inline-block;
-  padding:46px 0 43px 0;
-  margin: 0 15px 0 15px;
+.nav ul li:first-child{
+  margin-left: 0;
 }
 ul{
   padding-left:0px;

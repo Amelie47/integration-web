@@ -68,8 +68,7 @@ export default class Utils {
 	}
 
 	getProduct(item, section_entete) {
-		let container = document.createElement('div');
-		container.classList.add('div-product');
+		let container = this.createDivWithClass('div-product');
 		container.setAttribute('data-color', item.specs.color);
 
 		let article = document.createElement('article');
@@ -78,7 +77,9 @@ export default class Utils {
 		let div_wrapper = document.createElement('div');
 		div_wrapper.classList.add('wrapper');
 
-		let div2 = document.createElement('div');
+		let divFlex = this.createDivWithClass('div-flex');
+
+		let content = document.createElement('div');
 
 		let title = document.createElement('h1');
 		title.classList.add('product-title');
@@ -96,11 +97,12 @@ export default class Utils {
 		container.appendChild(img);
 		container.appendChild(article);
 		article.appendChild(div_wrapper);
-		div_wrapper.appendChild(div2);
-		div2.appendChild(title);
-		div2.appendChild(size_engine);
-		div2.appendChild(color);
-		div2.appendChild(this.getButtonCommander());
+		div_wrapper.appendChild(divFlex);
+		content.appendChild(title);
+		content.appendChild(size_engine);
+		content.appendChild(color);
+		divFlex.appendChild(content);
+		divFlex.appendChild(this.getButtonCommander());
 
 		title.innerHTML = item.title;
 		size_engine.innerHTML = 'Taille ' + item.specs.size + ' - ' + item.specs.engine;

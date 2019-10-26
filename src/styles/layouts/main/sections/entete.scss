@@ -1,5 +1,5 @@
 #entete{
-    padding-top:106px;
+    padding-top:99px;
     position: relative;
     height: 400px;
     overflow: hidden;
@@ -14,11 +14,11 @@
   .div-product{
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 360px;
+    padding-top: 40px;
   }
   .img-entete {
     width: 1038px;
-    padding-top: 56px;
     position: absolute;
     transform: translateX(-70px);
     z-index: 0;
@@ -34,14 +34,26 @@
   .product{
     color:white;
     z-index: 1;
+    height: 100%;
   }
   .wrapper{
     display:flex;
     flex-wrap: wrap;
     align-content: space-between;
+    height: 100%;
+    position: relative;
+  }
+  .wrapper > div{
+    height: 100%;
+  }
+  .div-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .product-title{
-    margin-top:50px;
+    margin: 0;
+    margin-bottom: 15px;
     font-weight: bold;
   }
   .product-content{

@@ -14,7 +14,7 @@ export default class Carousel {
             slidesVisible: 1,
             loop: true,
             transitionTime: 0.3,
-            auto: { bool: false, interval: 0, nav: true, stopHover: false},
+            auto: { bool: false, interval: 3000, nav: true, stopHover: false},
             anime: 'translateX'
         }, options);
         this.children = [].slice.call(element.children);

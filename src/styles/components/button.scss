@@ -3,13 +3,12 @@
  ******************************************/
  .button-commander{
   text-decoration: none;
-  padding:13px 9px;
+  padding:8px 10px;
   background-color: transparent;
   border: solid 1px;
 }
 .button{
   text-decoration: none;
-  padding:13px 13px;
   background-color: transparent;
 }
 .arrow-button{
@@ -20,9 +19,10 @@
 }
 
 #entete .button-commander{
-  margin-top: 200px;
   color: white;
   border-color: white;
+  bottom: 56px;
+  position: absolute;
 }
 
 /********************
