@@ -59,6 +59,27 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   });
 
   //==================================
+  //SLIDER ventes et commandes
+  //==================================
+  let commandes = document.getElementsByClassName('div-articles-historique')[0];
+  for(let n = 0; n < commandes.children.length; n++){
+    commandes.children[n].style.transition = '0.5s all';
+    if(n>3){
+      commandes.children[n].style.opacity = '0';
+    }
+  }
+
+  let collapsecommandes = new Collapse(document.getElementById('voir-tout-commandes'), commandes, {
+    btnSecondText: 'Voir 4 dernières actualités',
+    imgRotate: true,
+    visible: 4,
+    decalage: -24,
+    itemsAlign: 'vertical',
+    btnPos: 1
+  });
+
+
+  //==================================
   //AFFICHAGE DE TOUT LES PRODUITS
   //==================================
   // Affichage
@@ -68,22 +89,19 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
 
   first_products.children.forEach((item) => {
     if ((utils.getPos(item).y - 3) != utils.getPos(first_products).y) { item.style.opacity = '0'; }
-    item.style.transition = '0.5s all';
   });
 
-  let btn_voir_tout = document.getElementById('btn-voir-tout');
-  let see = false;
-  let h = first_products.offsetHeight;
-
-  let fleche_down = document.createElement('img');
-  fleche_down.setAttribute('src', '/src/assets/images/Fleche-down.png');
-  fleche_down.setAttribute('id', 'fleche-down');
-
-  let collapseseeall = new Collapse(btn_voir_tout, first_products, {
+  let collapseseeall = new Collapse(document.getElementById('btn-voir-tout'), first_products, {
     btnSecondText: 'Voir 5 modèles',
-    imgRotate: true
+    imgRotate: true,
+    decalage: 3,
+    timeTransition: 0.7,
+    btnPos: 0
   });
 
-  let searchBar = new Search(document.getElementById('search'), first_products);
+  let input_search = document.getElementById('search');
+  let loupe = document.getElementById('loupe');
+  loupe.style.right = document.getElementById('search').offsetWidth - loupe.offsetWidth - 11 + 'px';
+  let searchBar = new Search(input_search, first_products);
 
 });

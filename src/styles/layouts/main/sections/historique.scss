@@ -1,5 +1,8 @@
+//===================
+// Section
+//===================
 .section-historique{
-  padding: 20px 0 50px 0;
+  padding: 50px 0 50px 0;
   position: relative;
   background-color: white;
   margin-top: -50px;
@@ -9,17 +12,26 @@
   display: flex;
 }
 .div-historique{
-  width: 50%;
+  width: 435px;
   margin-right: 50px ;
+  overflow: hidden;
 }
+
+//===================
+// Contenu
+//===================
 .title-historique{
   font-size: 18px;
+  margin:0;
 }
 .article-historique{
   display: flex;
   justify-content: space-between;
-  padding: 23px 0 23px 0;
+  padding: 23px 0 24px 0;
   border-bottom: 1px #d6d6d6 solid;
+}
+.div-articles-historique{
+  padding-top: 47px;
 }
 .article-historique:first-child{
   padding-top: 0;
@@ -31,41 +43,30 @@
 .article-historique-content{
   display: flex;
 }
-
 .article-historique-content .user-img{
-  width: 76px;
-  height: 76px;
+  width: 50px;
+  height: 50px;
   margin-right: 19px;
   border-radius: 50%;
   border: #bebebe 1px solid;
 }
-
+.historique-infos{
+  left: -15px;
+}
 .badge{
-  width: 76px;
-  height: 76px;
+  width: 50px;
+  height: 50px;
   background-color: #d6d6d6;
   border: #bebebe 1px solid;
   border-radius: 50%;
-  transform: translateX(-35px);
+  transform: translateX(-33px);
 }
 .state-user-img{
-  height: 32px;
+  height: 25px;
   position: absolute;
   left: 50%;
   transform: translate(-50%,-50%);
   top: 50%;
-}
-.commande-danger .etat{color: #ff3f0c;}
-.commande-danger .badge{
-  border-color: #ff3f0c;
-  background-color: #ff3f0c;
-}
-.commande-danger .user-img{border-color: #ff3f0c;}
-
-.commande-ok .etat{color: #0cff56;}
-.commande-ok .badge{
-  border-color: #0cff56;
-  background-color: #0cff56;
 }
 .article-title{
   margin: 0;
@@ -76,9 +77,20 @@
 }
 .etat{
   position: absolute;
-  bottom: 0;
   font-size: 11px;
 }
+
+//===================
+// Etat des commandes
+//===================
+
+// Commande attention requise
+.commande-danger .etat{color: #ff3f0c;}
+.commande-danger .badge{
+  border-color: #ff3f0c;
+  background-color: #ff3f0c;
+}
+.commande-danger .user-img{border-color: #ff3f0c;}
 .fleche-right{
   margin-left: 10px;
 }
@@ -90,4 +102,14 @@
 }
 .button-danger .fleche-right{
   margin-left: 17px;
+}
+
+//Commande validée
+.commande-ok .etat{color: #0cff56;}
+.commande-ok .badge{
+  border-color: #0cff56;
+  background-color: #0cff56;
+}
+.commande-ok .state-user-img{
+  height: 15px;
 }

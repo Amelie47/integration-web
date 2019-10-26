@@ -1,17 +1,19 @@
 .section-modeles{
-  padding-bottom: 50px;
+  padding-bottom: 83px;
 }
 .section-modeles > div{
-  padding-top:43px;
+  padding-top:55px;
 }
 #loupe{
   position: absolute;
-  padding:11px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 #search{
-  width: 255px;
-  height: 10px;
-  padding:14px 14px 14px 40px;
+  position: relative;
+  width: 210px;
+  padding:6px;
+  padding-left: 40px;
   color: grey;
   border: 1px solid #d6d6d6;
   box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.33);
@@ -24,21 +26,22 @@
 .section-modeles .stock-danger{
   border-bottom: solid 5px #ff3f0c;
 }
-
-
 .voir-tout{
   display: flex;
-  padding-top: 35px;
   position: relative;
   background-color: white;
 }
 .voir-tout button{
   margin: auto;
-  padding:10px;
+  padding:8px;
   color: grey;
   border-color: #d6d6d6;
   background-color: white;
   z-index: 1;
+  font-size: 14px;
+}
+.voir-tout button:hover{
+  cursor: pointer;
 }
 .voir-tout:before{
   content: '';
@@ -50,7 +53,7 @@
   z-index: 0;
 }
 #fleche-down{
-  padding: 0 10px 0 10px;
+  padding: 0 10px;
 }
 
 #first-products{
@@ -60,4 +63,5 @@
   transition:height 0.7s ease-out;
   overflow: hidden;
   height: auto;
+  margin-bottom:35px;
 }

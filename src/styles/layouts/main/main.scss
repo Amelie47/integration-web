@@ -17,6 +17,10 @@
   width:923px;
   margin: auto;
 }
+.medium-section-size{
+  width: 824px;
+  margin: auto;
+}
 .little-section-size{
   width: 742px;
   margin: auto;
@@ -32,7 +36,10 @@
   justify-content: space-between;
 }
 .relative{position:relative;}
-.big-title{font-size: 24px;}
+.big-title{
+  font-size: 24px;
+  margin:0;
+}
 .title{font-size: 1rem;}
 .header-section{margin-bottom:38px;}
 .div-arrows{
@@ -40,4 +47,3 @@
   align-items: center;
   position: relative;
 }
-label{padding-right: 10px;}

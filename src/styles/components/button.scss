@@ -17,12 +17,21 @@
 #btn-voir-tout:hover{
   cursor: pointer;
 }
-
 #entete .button-commander{
   color: white;
   border-color: white;
   bottom: 56px;
   position: absolute;
+}
+.input-sort{
+  padding:6px;
+  color: grey;
+  border-color: #d6d6d6;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.33);
+  width: 114px;
+}
+.section-ventes .input-sort{
+  width: 123px;
 }
 
 /********************

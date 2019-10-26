@@ -60,7 +60,6 @@
 
 				</div>
 		</section>
-
 		<section class="section-nouveautes">
 			<div id="div-sect">
 				<div class="little-section-size">
@@ -149,9 +148,9 @@
 								<div class="badge">
 									<img alt="user" src="/src/assets/images/info.png" class="state-user-img">
 								</div>
-								<div class="relative">
+								<div class="relative historique-infos">
 									<p class="ft-14 article-title"><strong>Commande N°365412</strong></p>
-									<p class="article-by">par <strong>Vous</strong> le <strong>02 février 2015</strong>
+									<p class="article-by">par <strong>Vous</strong> le <strong>02 février 2016</strong>
 									</p>
 									<p class="etat">attention requise</p>
 								</div>
@@ -167,10 +166,10 @@
 								<div class="badge">
 									<img alt="user" src="/src/assets/images/truck.png" class="state-user-img">
 								</div>
-								<div class="relative">
+								<div class="relative historique-infos">
 									<p class="ft-14 article-title"><strong>Commande N°365348</strong></p>
 									<p class="article-by">par <strong>Pierre Amiro</strong> le <strong>22 janvier
-											2015</strong></p>
+											2016</strong></p>
 									<p class="etat">en cours d'éxpédition</p>
 								</div>
 							</div>
@@ -182,9 +181,9 @@
 								<div class="badge">
 									<img alt="user" src="/src/assets/images/tick.png" class="state-user-img">
 								</div>
-								<div class="relative">
+								<div class="relative historique-infos">
 									<p class="ft-14 article-title"><strong>Commande N°359836</strong></p>
-									<p class="article-by">par <strong>Vous</strong> le <strong>06 janvier 2015</strong>
+									<p class="article-by">par <strong>Vous</strong> le <strong>06 janvier 2016</strong>
 									</p>
 									<p class="etat">receptionnée</p>
 								</div>
@@ -197,7 +196,7 @@
 								<div class="badge">
 									<img alt="user" src="/src/assets/images/tick.png" class="state-user-img">
 								</div>
-								<div class="relative">
+								<div class="relative historique-infos">
 									<p class="ft-14 article-title"><strong>Commande N°359134</strong></p>
 									<p class="article-by">par <strong>Pierre Amiro</strong> le <strong>22 décembre
 											2015</strong></p>
@@ -206,9 +205,54 @@
 							</div>
 							<div></div>
 						</li>
+						<li class="article-historique commande-ok">
+							<div class="article-historique-content">
+								<img alt="user" src="/src/assets/images/User2.png" class="user-img">
+								<div class="badge">
+									<img alt="user" src="/src/assets/images/tick.png" class="state-user-img">
+								</div>
+								<div class="relative historique-infos">
+									<p class="ft-14 article-title"><strong>Commande N°359255</strong></p>
+									<p class="article-by">par <strong>Pierre Amiro</strong> le <strong>10 décembre
+											2015</strong></p>
+									<p class="etat">receptionnée</p>
+								</div>
+							</div>
+							<div></div>
+						</li>
+						<li class="article-historique commande-ok">
+							<div class="article-historique-content">
+								<img alt="user" src="/src/assets/images/User1.png" class="user-img">
+								<div class="badge">
+									<img alt="user" src="/src/assets/images/tick.png" class="state-user-img">
+								</div>
+								<div class="relative historique-infos">
+									<p class="ft-14 article-title"><strong>Commande N°358752</strong></p>
+									<p class="article-by">par <strong>Vous</strong> le <strong>01 décembre
+											2015</strong></p>
+									<p class="etat">receptionnée</p>
+								</div>
+							</div>
+							<div></div>
+						</li>
+						<li class="article-historique commande-ok">
+							<div class="article-historique-content">
+								<img alt="user" src="/src/assets/images/User1.png" class="user-img">
+								<div class="badge">
+									<img alt="user" src="/src/assets/images/tick.png" class="state-user-img">
+								</div>
+								<div class="relative historique-infos">
+									<p class="ft-14 article-title"><strong>Commande N°353658</strong></p>
+									<p class="article-by">par <strong>Vous</strong> le <strong>14 novembre
+											2015</strong></p>
+									<p class="etat">receptionnée</p>
+								</div>
+							</div>
+							<div></div>
+						</li>
 					</ul>
 					<div class="voir-tout">
-						<button class="button button-commander">voir l'historique<img alt="image1"
+						<button class="button button-commander" id="voir-tout-commandes">voir l'historique<img alt="image1"
 								src="/src/assets/images/fleche-right.png" class="fleche-right"></button>
 					</div>
 				</div>
@@ -218,7 +262,7 @@
 			</div>
 		</section>
 		<section class="section-ventes">
-			<div class="section-size">
+			<div class="medium-section-size">
 				<div class="spacebetween header-section">
 					<p class="ft-14"><strong>Ventes / Commandes</strong></p>
 					<div class="spacebetween relative div-arrows">
@@ -251,7 +295,6 @@
 					<p class="ft-14 big-title">Tous les modèles</p>
 					<div class="spacebetween relative div-arrows">
 						<div class="relative div-input-modele input-div">
-							<label class="ft-14">modèle : </label>
 							<img alt="down" src="/src/assets/images/Loupe.png" id="loupe">
 							<input type="text" placeholder="Rechercher un modèle" id="search">
 						</div>
