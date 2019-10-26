@@ -40,13 +40,3 @@
 #bulles{
   text-align: center;
 }
-
-.bulle:hover{
-  animation: bounce 0.5s ease;
-}
-
-@keyframes bounce{
-  from {transform: translateY(0);}
-  50%  {transform: translateY(-4px);}
-  to   {transform: translateY(0);}
-}

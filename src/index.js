@@ -12,22 +12,25 @@ let slider_auto_entete = document.getElementById('slider-auto-entete');
 let slider_best_seller = document.getElementById('slider-best-seller');
 let first_products = document.getElementById('first-products');
 let commandes = document.getElementsByClassName('div-articles-historique')[0];
+let entete = document.getElementById('entete');
 
 let burger_menu_icon = document.getElementById('menu-burger');
 let burger_menu_div = document.getElementById('div_header_nav');
-burger_menu_div.style.height = window.innerHeight + 'px';
+
 let h = burger_menu_div.children[0].offsetHeight + burger_menu_div.children[1].offsetHeight;
 
 if(mobile_size){
   burger_menu_div.classList.remove('spacebetween');
   burger_menu_div.style.transform = 'translate3d(0,' + -h + 'px,0)';
+  entete.style.height = window.innerHeight + 'px';
+  burger_menu_div.style.height = window.innerHeight + 'px';
 }else{
   burger_menu_div.classList.add('spacebetween');
 }
 
 let see = 0;
 burger_menu_icon.addEventListener('click', function(){
-  let color = document.getElementById('entete').style.backgroundColor;
+  let color = entete.style.backgroundColor;
   if(see%2 == 0){
     burger_menu_div.style.transform = 'translate3d(0,0,0)';
     burger_menu_icon.children[0].style.transform = 'rotate(45deg) translateY(12px)';
