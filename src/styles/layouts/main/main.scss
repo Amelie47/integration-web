@@ -47,3 +47,21 @@
   align-items: center;
   position: relative;
 }
+
+/********************
+ * Alternatives - Responsive
+ ********************/
+ @media screen and (max-width: 400px) {
+  .section-size{
+    width:100%;
+    margin: auto;
+  }
+  .medium-section-size{
+    width: 100%;
+    margin: auto;
+  }
+  .little-section-size{
+    width: 100%;
+    margin: auto;
+  }
+}

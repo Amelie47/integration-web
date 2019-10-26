@@ -1,4 +1,3 @@
-
 import './styles/style.scss';
 import Slider from './js/components/Slider';
 import Search from './js/components/Search';
@@ -6,13 +5,45 @@ import Collapse from './js/components/Collapse';
 import Utils from './js/components/Utils';
 require('./js/ajax.js')();
 
+let mobile_size = window.innerWidth < 800;
+
 let utils = new Utils();
+let slider_auto_entete = document.getElementById('slider-auto-entete');
+let slider_best_seller = document.getElementById('slider-best-seller');
+let first_products = document.getElementById('first-products');
+let commandes = document.getElementsByClassName('div-articles-historique')[0];
+
+let burger_menu_icon = document.getElementById('menu-burger');
+let burger_menu_div = document.getElementById('div_header_nav');
+burger_menu_div.style.height = window.innerHeight + 'px';
+let h = burger_menu_div.children[0].offsetHeight + burger_menu_div.children[1].offsetHeight;
+
+if(mobile_size){
+  burger_menu_div.classList.remove('spacebetween');
+  burger_menu_div.style.transform = 'translate3d(0,' + -h + 'px,0)';
+}else{
+  burger_menu_div.classList.add('spacebetween');
+}
+
+let see = 0;
+burger_menu_icon.addEventListener('click', function(){
+  let color = document.getElementById('entete').style.backgroundColor;
+  if(see%2 == 0){
+    burger_menu_div.style.transform = 'translate3d(0,0,0)';
+    burger_menu_icon.children[0].style.transform = 'rotate(45deg) translateY(12px)';
+    burger_menu_icon.children[1].style.opacity = '0';
+    burger_menu_icon.children[2].style.transform = 'rotate(-45deg) translateY(-12px)';
+    burger_menu_div.style.backgroundColor = color;
+  }else{
+    burger_menu_div.style.transform = 'translate3d(0,' + -h + 'px,0)';
+    burger_menu_icon.children[0].style.transform = 'rotate(0deg)';
+    burger_menu_icon.children[1].style.opacity = '1';
+    burger_menu_icon.children[2].style.transform = 'rotate(0deg)';
+  }
+  see ++;
+})
 
 ajax('./src/assets/models/models.json', {}, function (datas) {
-
-  let slider_auto_entete = document.getElementById('slider-auto-entete');
-  let slider_best_seller = document.getElementById('slider-best-seller');
-  let first_products = document.getElementById('first-products');
 
   //==================================
   //SLIDER AUTO ENTETE
@@ -61,7 +92,6 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   //==================================
   //SLIDER ventes et commandes
   //==================================
-  let commandes = document.getElementsByClassName('div-articles-historique')[0];
   for(let n = 0; n < commandes.children.length; n++){
     commandes.children[n].style.transition = '0.5s all';
     if(n>3){
@@ -82,7 +112,6 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   //==================================
   //AFFICHAGE DE TOUT LES PRODUITS
   //==================================
-  // Affichage
   utils.displayAllProducts(first_products, datas);
   utils.setWidthItems(first_products);
   utils.setHeightItems(first_products);
@@ -101,7 +130,6 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
 
   let input_search = document.getElementById('search');
   let loupe = document.getElementById('loupe');
-  loupe.style.right = document.getElementById('search').offsetWidth - loupe.offsetWidth - 11 + 'px';
+  loupe.style.right = input_search.offsetWidth - loupe.offsetWidth - 11 + 'px';
   let searchBar = new Search(input_search, first_products);
-
 });

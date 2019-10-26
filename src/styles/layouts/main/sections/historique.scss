@@ -10,15 +10,15 @@
 }
 .section-historique > div{
   display: flex;
+  justify-content: space-between;
 }
 .div-historique{
   width: 435px;
-  margin-right: 50px ;
   overflow: hidden;
 }
 
 //===================
-// Contenu
+// historique
 //===================
 .title-historique{
   font-size: 18px;
@@ -78,7 +78,14 @@
 .etat{
   position: absolute;
   font-size: 11px;
+  color: #bebebe;
 }
+
+//formation
+.div-formations{
+  width: 435px;
+}
+
 
 //===================
 // Etat des commandes

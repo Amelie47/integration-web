@@ -9,7 +9,6 @@
   #entete--overflowhidden{
     overflow: hidden;
     height: 100%;
-    transform: translateY(7px);
   }
   .div-product{
     display: flex;
@@ -60,3 +59,12 @@
     font-size: 11px;
     margin:0;
   }
+
+  /********************
+ * Alternatives - Responsive
+ ********************/
+ @media screen and (max-width: 400px) {
+  #entete{
+    padding-top:0;
+  }
+}

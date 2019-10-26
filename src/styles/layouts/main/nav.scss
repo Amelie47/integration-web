@@ -1,7 +1,7 @@
 /******************************************
  * Navigation
  ******************************************/
-ul{
+ ul{
   margin:0;
   list-style:none;
 }
@@ -59,7 +59,47 @@ ul{
 .fa-plus-circle{
   margin-left:10px;
 }
+#menu-burger{
+  display: none;
+  position:absolute;
+  right: 0;
+  padding: 20px;
+  top:0;
+}
+#menu-burger span{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+
+  transition: 0.5s all;
+}
 
 /********************
  * Alternatives - Responsive
  ********************/
+ @media screen and (max-width: 400px) {
+  #menu-burger{
+    display: block;
+  }
+  .header .section-size{
+    background-color: white;
+    transition: 1.3s all ease;
+  }
+  .element{
+    display: block;
+    text-align: center;
+  }
+  .nav ul li:first-child{
+    margin-left: 13px;
+  }
+  .active-link{
+    border:none;
+  }
+}

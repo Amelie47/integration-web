@@ -15,7 +15,7 @@
 
 	<!-- header -->
 	<header class="header">
-		<div class="section-size spacebetween">
+		<div class="section-size spacebetween" id="div_header_nav">
 			<nav class="nav relative">
 				<ul>
 					<li class="active-link element"><a class="link" href="">Accueil</a></li>
@@ -24,10 +24,17 @@
 				</ul>
 			</nav>
 			<div class="nav-user relative">
-				<p class="link element"><a href="">Sophia Lopez</a><img id="plus" src="/src/assets/images/plus.png"></p>
-				<p class="link element"><a href="">Déconnexion</a></p>
+				<li class="element"><a class="link" href="">Sophia Lopez</a><img id="plus"
+						src="/src/assets/images/plus.png">
+				</li>
+				<li class="element"><a class="link" href="">Déconnexion</a></li>
 			</div>
 		</div>
+		<a id="menu-burger">
+			<span></span>
+			<span></span>
+			<span></span>
+		</a>
 	</header>
 	<!-- / header -->
 
@@ -252,12 +259,35 @@
 						</li>
 					</ul>
 					<div class="voir-tout">
-						<button class="button button-commander" id="voir-tout-commandes">voir l'historique<img alt="image1"
-								src="/src/assets/images/fleche-right.png" class="fleche-right"></button>
+						<button class="button button-commander" id="voir-tout-commandes">voir l'historique<img
+								alt="image1" src="/src/assets/images/fleche-right.png" class="fleche-right"></button>
 					</div>
 				</div>
 				<div class="div-formations">
 					<p class="title-historique">Formations liées</p>
+					<ul class="div-articles-historique">
+						<li class="article-historique">
+							<div class="article-historique-content">
+								<img alt="formation" src="/src/assets/images/formation.png" class="user-img">
+								<div class="relative formation-infos">
+									<p class="article-by">force de vente</p>
+									<p class="ft-14 article-title"><strong>Optimiser vos campagnes
+											publicitaires</strong></p>
+									<p class="etat">recommandée</p>
+								</div>
+							</div>
+						</li>
+						<li class="article-historique">
+							<div class="article-historique-content">
+								<img alt="formation" src="/src/assets/images/formation.png" class="user-img">
+								<div class="relative formation-infos">
+									<p class="article-by">force de vente</p>
+									<p class="ft-14 article-title"><strong>Gestion des stocks</strong></p>
+									<p class="etat">recommandée</p>
+								</div>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</section>
