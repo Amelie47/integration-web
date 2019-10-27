@@ -110,3 +110,16 @@
     50%  {transform: translate3d(-50%,-55%,0);}
     to   {transform: translate3d(-50%,-50%,0);}
 }
+
+
+/********************
+ * Alternatives - Responsive
+ ********************/
+ @media screen and (max-width: 400px) {
+  .arrow-gauche{
+    left: 10px
+  }
+  .arrow-droite{
+    right: 10px;
+  }
+ }

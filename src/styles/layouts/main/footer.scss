@@ -18,7 +18,23 @@
     color: #a29eff;
     padding: 1px 0;
     }
-    .footer-content{width: 230px;}
-/********************
+    footer section div{
+        width: 230px;
+    }
+
+ /********************
  * Alternatives - Responsive
  ********************/
+ @media screen and (max-width: 400px) {
+    footer section{
+        padding: 40px 0 40px 40px;
+        display: block;
+    }
+    footer section div{
+        width:100%;
+        padding-bottom: 10px;
+    }
+    footer li{
+        padding: 6px 0;
+    }
+ }

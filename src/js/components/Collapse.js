@@ -22,9 +22,10 @@ export default class Collapse{
     this.btnText = this.el.textContent;
     this.initialHeight = this.container.offsetHeight;
 
-    this.container.style.height = this.options.height + this.options.decalage + 'px';
     if(this.options.itemsAlign == 'vertical'){
       this.container.style.height = (this.options.visible * this.options.height) + this.options.decalage + 'px';
+    }else{
+      this.container.style.height = this.options.height + this.options.decalage + 'px';
     }
     this.h = this.container.style.height;
    
@@ -67,7 +68,7 @@ export default class Collapse{
       });
     }else{
       for(let n = 0; n < this.container.children.length; n++){
-        if(n>this.options.visible){
+        if(n >= this.options.visible){
           this.container.children[n].style.opacity = '0';
         };
       };

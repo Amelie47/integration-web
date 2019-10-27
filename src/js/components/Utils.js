@@ -6,9 +6,9 @@ export default class Utils {
 		return { x: lx, y: ly };
 	}
 
-	setWidthItems(tab) {
+	setWidthItems(tab, nbVisible) {
 		tab.children.forEach(function (item) {
-			item.style.width = ((1 / 5) * tab.parentNode.offsetWidth - 6) + 'px';
+			item.style.width = ((1 / nbVisible) * tab.parentNode.offsetWidth - 6) + 'px';
 		});
 	}
 

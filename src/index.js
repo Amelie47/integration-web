@@ -19,15 +19,6 @@ let burger_menu_div = document.getElementById('div_header_nav');
 
 let h = burger_menu_div.children[0].offsetHeight + burger_menu_div.children[1].offsetHeight;
 
-if(mobile_size){
-  burger_menu_div.classList.remove('spacebetween');
-  burger_menu_div.style.transform = 'translate3d(0,' + -h + 'px,0)';
-  entete.style.height = window.innerHeight + 'px';
-  burger_menu_div.style.height = window.innerHeight + 'px';
-}else{
-  burger_menu_div.classList.add('spacebetween');
-}
-
 let see = 0;
 burger_menu_icon.addEventListener('click', function(){
   let color = entete.style.backgroundColor;
@@ -38,7 +29,7 @@ burger_menu_icon.addEventListener('click', function(){
     burger_menu_icon.children[2].style.transform = 'rotate(-45deg) translateY(-12px)';
     burger_menu_div.style.backgroundColor = color;
   }else{
-    burger_menu_div.style.transform = 'translate3d(0,' + -h + 'px,0)';
+    burger_menu_div.style.transform = 'translate3d(0,-100%,0)';
     burger_menu_icon.children[0].style.transform = 'rotate(0deg)';
     burger_menu_icon.children[1].style.opacity = '1';
     burger_menu_icon.children[2].style.transform = 'rotate(0deg)';
@@ -60,7 +51,7 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
     slidesVisible: 1,
     auto: {
       bool: true,
-      interval: 5000,
+      interval: 7000,
       nav: false,
       stopHover: true
     },
@@ -116,19 +107,32 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   //AFFICHAGE DE TOUT LES PRODUITS
   //==================================
   utils.displayAllProducts(first_products, datas);
-  utils.setWidthItems(first_products);
+  utils.setWidthItems(first_products,mobile_size?1:5);
   utils.setHeightItems(first_products);
 
-  first_products.children.forEach((item) => {
-    if ((utils.getPos(item).y - 3) != utils.getPos(first_products).y) { item.style.opacity = '0'; }
-  });
+  if(mobile_size){
+    for(let n = 0; n < first_products.children.length; n++){
+      first_products.children[n].style.transition = '0.5s all';
+      if(n>3){
+        first_products.children[n].style.opacity = '0';
+      }
+    }  
+  }else{
+    first_products.children.forEach((item) => {
+      if ((utils.getPos(item).y - 3) != utils.getPos(first_products).y) {
+        item.style.opacity = '0';
+      }
+    });
+  }
 
   let collapseseeall = new Collapse(document.getElementById('btn-voir-tout'), first_products, {
     btnSecondText: 'Voir 5 modèles',
     imgRotate: true,
     decalage: 3,
     timeTransition: 0.7,
-    btnPos: 0
+    btnPos: 0,
+    itemsAlign: mobile_size?'vertical':'horizontal',
+    visible: mobile_size?4:5
   });
 
   let input_search = document.getElementById('search');

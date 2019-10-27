@@ -3,3 +3,28 @@
   z-index: 2;
   background-color: white;
 }
+
+/********************
+ * Alternatives - Responsive
+ ********************/
+ @media screen and (max-width: 400px) {
+  .section-slider{
+    height: 100%;
+  }
+  .section-slider .header-section{
+    padding: 10px;
+    display: block;
+  }
+  .section-slider .header-section > .big-title{
+    padding-bottom: 10px;
+  }
+  .section-slider .header-section > .div-arrows{
+    padding: 10px;
+  }
+  .section-slider .header-section > div{
+    display: block;
+  }
+  .section-slider .header-section .input-sort{
+    width: 100%;
+  }
+ }

@@ -31,3 +31,29 @@
   width: 100%;
   padding-bottom: 16px;
 }
+
+
+/********************
+ * Alternatives - Responsive
+ ********************/
+ @media screen and (max-width: 400px) {
+  .section-ventes .div-arrows{
+    width: 100%;
+  }
+   .section-ventes .div-arrows div{
+     margin: 10px;
+     width: 100%;
+   }
+   .section-ventes .header-section > p{
+    padding-left: 10px;
+   }
+   .section-ventes .input-sort{
+      width: 100% !important;
+    }
+    #legende{
+      width: 100%;
+    }
+    .div-graphics{
+      padding: 10px;
+    }
+ }

@@ -102,4 +102,13 @@ ul{
   .active-link{
     border:none;
   }
+  #div_header_nav{
+    transform:translate3d(0, -100%,0);
+    height: 100%;
+    display: block;
+  }
+  .header{
+    height: 100%;
+  }
+
 }

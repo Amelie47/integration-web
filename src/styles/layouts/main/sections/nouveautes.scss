@@ -40,3 +40,16 @@
 #bulles{
   text-align: center;
 }
+
+/********************
+ * Alternatives - Responsive
+ ********************/
+ @media screen and (max-width: 400px) {
+  #image{
+    margin: 0;
+  }
+  #content-nouveaute h1{
+    top:0;
+    margin-top: 10px;
+  }
+ }

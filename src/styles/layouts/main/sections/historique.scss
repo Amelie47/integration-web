@@ -120,3 +120,33 @@
 .commande-ok .state-user-img{
   height: 15px;
 }
+
+
+/********************
+ * Alternatives - Responsive
+ ********************/
+ @media screen and (max-width: 400px) {
+  .section-historique > div{
+    display: block;
+    padding: 10px;
+  }
+  .div-historique{
+    width: 340px;
+  }
+  .div-formations{
+    width: 340px;
+  }
+  .article-historique{
+    display: block;
+  }
+  .button-danger button{
+    margin-top: 10px;
+    /* margin: auto; */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+  .div-formations .title-historique{
+    padding-top: 50px;
+  }
+ }
