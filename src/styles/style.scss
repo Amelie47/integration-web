@@ -48,3 +48,12 @@ main {
   display: block;
   position: relative;
 }
+
+/********************
+ * Alternatives - Responsive
+ ********************/
+ @media screen and (max-width: 400px) {
+  body {
+    overflow-x: hidden;
+  }
+}

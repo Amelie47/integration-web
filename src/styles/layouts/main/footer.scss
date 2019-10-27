@@ -2,24 +2,31 @@
  * Navigation
  ******************************************/
     footer{
-    background-color: #170cff;
-    color: white;
+        background-color: #170cff;
+        color: white;
     }
     footer section{
-    display: flex;
-    justify-content: space-between;
-    padding:35px 0 47px 0;
+        display: flex;
+        justify-content: space-between;
+        padding:35px 0 47px 0;
     }
     footer p{
-    margin-bottom: 30px;
-    font-size: 14px;
+        margin-bottom: 30px;
+        font-size: 14px;
     }
     footer li{
-    color: #a29eff;
-    padding: 1px 0;
+        padding: 1px 0;
     }
     footer section div{
         width: 230px;
+    }
+    footer a{
+        text-decoration: none;
+        color: #a29eff;
+        cursor: pointer;
+    }
+    footer a:hover{
+        font-weight: bold;
     }
 
  /********************

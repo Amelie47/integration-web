@@ -110,5 +110,9 @@ ul{
   .header{
     height: 100%;
   }
+  .nav-user li:after{
+    content: '';
+    padding:0;
+  }
 
 }

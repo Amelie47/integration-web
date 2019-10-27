@@ -113,7 +113,7 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   if(mobile_size){
     for(let n = 0; n < first_products.children.length; n++){
       first_products.children[n].style.transition = '0.5s all';
-      if(n>3){
+      if(n>4){
         first_products.children[n].style.opacity = '0';
       }
     }  
@@ -128,11 +128,11 @@ ajax('./src/assets/models/models.json', {}, function (datas) {
   let collapseseeall = new Collapse(document.getElementById('btn-voir-tout'), first_products, {
     btnSecondText: 'Voir 5 modèles',
     imgRotate: true,
-    decalage: 3,
+    decalage: 35,
     timeTransition: 0.7,
     btnPos: 0,
     itemsAlign: mobile_size?'vertical':'horizontal',
-    visible: mobile_size?4:5
+    visible: 5
   });
 
   let input_search = document.getElementById('search');

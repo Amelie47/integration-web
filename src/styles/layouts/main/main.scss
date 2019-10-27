@@ -27,7 +27,9 @@
 }
 
 //======Styles===================
-.ft-14{font-size:14px;}
+.ft-14{
+  font-size:14px;
+}
 .spacebetween{
   display:flex;
   flex-direction: row;
@@ -35,17 +37,26 @@
   flex-basis: auto;
   justify-content: space-between;
 }
-.relative{position:relative;}
+.relative{
+  position:relative;
+}
 .big-title{
   font-size: 24px;
   margin:0;
 }
-.title{font-size: 1rem;}
-.header-section{margin-bottom:38px;}
+.title{
+  font-size: 1rem;
+}
+.header-section{
+  margin-bottom:38px;
+}
 .div-arrows{
   display: flex;
   align-items: center;
   position: relative;
+}
+.input-sort{
+  cursor: pointer;
 }
 
 /********************
