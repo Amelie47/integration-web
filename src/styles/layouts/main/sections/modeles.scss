@@ -20,6 +20,12 @@
   text-decoration: none;
   background-color: transparent;
 }
+.section-modeles .div-arrows > div{
+  margin-right: 30px;
+}
+.section-modeles .div-arrows :last-child{
+  margin-right: 0;
+}
 .section-modeles .item__content{
   border-bottom: solid 5px #d6d6d6;
 }
